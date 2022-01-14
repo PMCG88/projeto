@@ -1,16 +1,33 @@
+@use "variables";
+
 .grid {
+  margin-bottom: variables.$separation-bottom;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 0.75rem;
 
+  @media screen and (max-width: variables.$container-large) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: variables.$container-medium) {
+    grid-template-columns: 1fr;
+  }
+
   &__card {
-    &:hover {
-      transform: scale(1.1);
-      transition: 500ms;
+    @media screen and (min-width: variables.$container-medium) {
+      &:hover {
+        transform: scale(1.1);
+        transition: 500ms;
+      }
     }
   }
   &__link {
   }
   &__img {
+    border-radius: 0.5rem;
+  }
+  &__title {
+    padding-left: variables.$separation-sides;
   }
 }

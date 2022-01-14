@@ -1,7 +1,7 @@
+@use "variables";
+
 .header {
-  &__title {
-    display: none;
-  }
+  margin-bottom: variables.$separation-bottom;
   &__logo {
   }
   &__img {

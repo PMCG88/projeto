@@ -1,5 +1,19 @@
+@use "variables";
+
 .news {
+  margin-bottom: variables.$separation-bottom;
+  pointer-events: all;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__link {
+  }
   &__iframe {
     border: none;
+  }
+  &__title {
+    padding-left: variables.$separation-sides;
   }
 }
