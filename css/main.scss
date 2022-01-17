@@ -130,6 +130,14 @@ h2 {
   font-weight: 100;
   font-style: italic;
   font-size: 50px;
+
+  @media screen and (max-width: variables.$container-large) {
+    font-size: 40px;
+  }
+
+  @media screen and (max-width: variables.$container-medium) {
+    font-size: 30px;
+  }
 }
 
 .title {
