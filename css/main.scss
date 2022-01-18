@@ -7,7 +7,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Round");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 
 /*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
 /* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
@@ -112,14 +113,28 @@ body {
   color: whitesmoke;
 }
 
-.material-icons {
-  font-size: inherit;
-}
-
 a,
 img,
-iframe {
+iframe,
+button,
+ul,
+li {
   display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -138,6 +153,25 @@ h2 {
   @media screen and (max-width: variables.$container-medium) {
     font-size: 30px;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.material-icons-round,
+.material-icons-outlined {
+  font-size: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {

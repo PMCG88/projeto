@@ -2,9 +2,7 @@
 
 .news {
   margin-bottom: variables.$separation-bottom;
-  display: flex;
   flex-direction: column;
-  align-items: center;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border: 0.9375rem solid;
@@ -14,6 +12,13 @@
   border-radius: 0.875rem;
   position: relative;
 
+  @media screen and (max-width: variables.$container-medium) {
+    border: 0.625rem solid;
+    border-top: 0.9375rem solid;
+    border-bottom: 3rem solid;
+    border-color: rgb(40, 40, 40);
+  }
+
   &__link {
     cursor: pointer;
     width: 100%;
@@ -22,42 +27,119 @@
     @media screen and (max-width: variables.$container-large) {
       height: 33rem;
     }
-
-    @media screen and (max-width: variables.$container-medium) {
-      height: 20rem;
-    }
-
-    &:not(:first-child) {
-      //temporário
-      display: none;
-    }
   }
+
   &__iframe {
     border: none;
     pointer-events: none;
     width: 100%;
     height: 100%;
   }
+
   &__title {
     padding-left: variables.$separation-sides;
   }
 
+  &__go-to {
+    display: none;
+    position: absolute;
+    top: 102.3%;
+    width: 100%;
+
+    @media screen and (max-width: variables.$container-xsmall) {
+      display: block;
+    }
+
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-text {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   &__controls {
     position: absolute;
-    top: 102%;
+    top: 101.55%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.625rem;
 
-    & div {
-      padding: 0 variables.$separation-sides;
+    @media screen and (max-width: variables.$container-large) {
+      font-size: 1.5625rem;
+      top: 102%;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      font-size: 1.375rem;
+      top: 102.2%;
+    }
+
+    @media screen and (max-width: variables.$container-xsmall) {
+      display: none;
     }
   }
 
-  &__play-pause {
+  &__buttons {
+    display: flex;
+    padding-right: variables.$separation-sides;
+  }
+
+  &__prev {
+  }
+
+  &__play {
+  }
+
+  &__pause {
+    display: none;
+  }
+
+  &__next {
   }
 
   &__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & li {
+      margin-right: 0.4rem;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__dot,
+  &__dot-active {
+    cursor: pointer;
+    border: 1px solid whitesmoke;
+    border-radius: 50%;
+    width: 0.75rem;
+    height: 0.75rem;
+
+    @media screen and (max-width: variables.$container-large) {
+      width: 0.6875rem;
+      height: 0.6875rem;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      width: 0.625rem;
+      height: 0.625rem;
+    }
+  }
+
+  &__dot {
+    &-active {
+      background: gainsboro;
+    }
   }
 }

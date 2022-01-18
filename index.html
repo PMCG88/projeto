@@ -108,11 +108,15 @@
 
     <div class="container">
       <div class="news">
-        <a class="news__link" href="https://www.bmwblog.com/" target="_blank">
+        <a
+          class="news__link"
+          id="1"
+          href="https://www.bmwblog.com/"
+          target="_blank"
+        >
           <iframe
             src="https://www.bmwblog.com/"
             title="BMW BLOG"
-            name="iframe-1"
             class="news__iframe"
             scrolling="no"
           ></iframe>
@@ -120,6 +124,7 @@
 
         <a
           class="news__link"
+          id="2"
           href="https://www.bimmerpost.com/"
           target="_blank"
         >
@@ -133,6 +138,7 @@
 
         <a
           class="news__link"
+          id="3"
           href="https://www.bimmerboost.com/"
           target="_blank"
         >
@@ -144,7 +150,12 @@
           ></iframe>
         </a>
 
-        <a class="news__link" href="http://www.bimmerfile.com/" target="_blank">
+        <a
+          class="news__link"
+          id="4"
+          href="http://www.bimmerfile.com/"
+          target="_blank"
+        >
           <iframe
             src="http://www.bimmerfile.com/"
             title="BimmerFile"
@@ -153,7 +164,12 @@
           ></iframe>
         </a>
 
-        <a class="news__link" href="https://www.bmwcoop.com/" target="_blank">
+        <a
+          class="news__link"
+          id="5"
+          href="https://www.bmwcoop.com/"
+          target="_blank"
+        >
           <iframe
             src="https://www.bmwcoop.com/"
             title="BMWCoop"
@@ -162,9 +178,35 @@
           ></iframe>
         </a>
 
+        <div class="news__go-to">
+          <a href="" target="_blank" class="news__go-to-link">
+            <p class="news__go-to-text">Go to website&nbsp;</p>
+            <span class="material-icons-round">logout</span>
+          </a>
+        </div>
+
         <div class="news__controls">
-          <div class="news__play-pause">play-pause</div>
-          <div class="news__dots">dots</div>
+          <div class="news__buttons">
+            <button class="news__prev">
+              <span class="material-icons-round">skip_previous</span>
+            </button>
+            <button class="news__play">
+              <span class="material-icons-round">play_arrow</span>
+            </button>
+            <button class="news__pause">
+              <span class="material-icons-round">pause</span>
+            </button>
+            <button class="news__next">
+              <span class="material-icons-round">skip_next</span>
+            </button>
+          </div>
+
+          <ul class="news__dots">
+            <li class="news__dot"></li>
+            <li class="news__dot"></li>
+            <li class="news__dot"></li>
+            <li class="news__dot"></li>
+          </ul>
         </div>
       </div>
     </div>
