@@ -121,7 +121,7 @@
   &__dot,
   &__dot-active {
     cursor: pointer;
-    border: 1px solid whitesmoke;
+    border: 1px solid gainsboro;
     border-radius: 50%;
     width: 0.75rem;
     height: 0.75rem;
@@ -138,7 +138,8 @@
   }
 
   &__dot {
-    &-active {
+    &-active,
+    &:hover {
       background: gainsboro;
     }
   }
