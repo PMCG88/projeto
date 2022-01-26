@@ -3,8 +3,7 @@
 .news {
   margin-bottom: variables.$separation-bottom;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: variables.$box-shadow-dark;
   border: 0.9375rem solid;
   border-top: 1.25rem solid;
   border-bottom: 3rem solid;
@@ -45,7 +44,7 @@
     top: 102.3%;
     width: 100%;
 
-    @media screen and (max-width: variables.$container-xsmall) {
+    @media screen and (max-width: variables.$container-x-small) {
       display: block;
     }
 
@@ -80,7 +79,7 @@
       top: 102.2%;
     }
 
-    @media screen and (max-width: variables.$container-xsmall) {
+    @media screen and (max-width: variables.$container-x-small) {
       display: none;
     }
   }
@@ -120,7 +119,7 @@
   &__dot,
   &__dot-active {
     cursor: pointer;
-    border: 1px solid gainsboro;
+    border: 1px solid variables.$color-dot;
     border-radius: 50%;
     width: 0.75rem;
     height: 0.75rem;
@@ -139,7 +138,7 @@
   &__dot {
     &-active,
     &:hover {
-      background: gainsboro;
+      background: variables.$color-dot;
     }
   }
 }
