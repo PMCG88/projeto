@@ -17,8 +17,9 @@
   &__card {
     @media screen and (min-width: variables.$container-medium) {
       &:hover {
+        z-index: 999;
         transform: scale(1.1);
-        transition: 500ms;
+        transition: 1s;
       }
     }
   }
@@ -27,7 +28,6 @@
   }
 
   &__img {
-    overflow: hidden;
     border-radius: 0.5rem;
     box-shadow: variables.$box-shadow-light;
 

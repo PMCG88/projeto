@@ -11,6 +11,9 @@
   border-radius: 0.875rem;
   position: relative;
 
+  @media screen and (min-width: variables.$container-medium) {
+  }
+
   @media screen and (max-width: variables.$container-medium) {
     border: 0.625rem solid;
     border-top: 0.9375rem solid;
@@ -136,7 +139,7 @@
   }
 
   &__dot {
-    &-active,
+    &--active,
     &:hover {
       background: variables.$color-dot;
     }
