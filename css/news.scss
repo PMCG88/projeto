@@ -121,6 +121,8 @@
 
   &__dot,
   &__dot-active {
+    text-indent: 100%;
+    overflow: hidden;
     cursor: pointer;
     border: 1px solid variables.$color-dot;
     border-radius: 50%;

@@ -1,4 +1,9 @@
 @use "variables";
 
 .footer {
+  border-top: 1px groove variables.$color-dot;
+  &__logo {
+  }
+  &__logo-img {
+  }
 }
