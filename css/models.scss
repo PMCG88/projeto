@@ -1,4 +1,30 @@
 @use "variables";
 
 .models {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__slider {
+    position: relative;
+  }
+
+  &__pic {
+    &:not(:first-child) {
+      // TEMP
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+}
+
+.controls-slider {
+  &__item {
+  }
+
+  &__button {
+  }
 }

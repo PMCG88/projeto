@@ -29,6 +29,11 @@
     @media screen and (max-width: variables.$container-large) {
       height: 33rem;
     }
+
+    &:not(:first-child) {
+      // TEMP
+      display: none;
+    }
   }
 
   &__iframe {
