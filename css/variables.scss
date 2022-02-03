@@ -30,8 +30,9 @@ $font-size-h3-small: 1.6875rem;
 $font-size-text-large: 1.125rem;
 $font-size-text-medium: 1rem;
 
-// Box shadows
+// Shadows
 $box-shadow-light: rgba(0, 0, 0, 0.12) 0px 1px 3px,
   rgba(0, 0, 0, 0.24) 0px 1px 2px;
 $box-shadow-dark: rgba(0, 0, 0, 0.4) 0px 2px 4px,
   rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+$title-shadow: 3px 3px 2px rgba(0, 0, 0, 1);

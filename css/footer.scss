@@ -1,6 +1,7 @@
 @use "variables";
 
 .footer {
+  margin-top: variables.$separation-bottom;
   border-top: 1px groove variables.$color-dot;
   &__logo {
   }
