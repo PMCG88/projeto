@@ -5,19 +5,16 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 
   &__wrapper {
     display: inline-block;
-    width: calc((1 / 3) * 100vw);
-    height: calc((1 / 3) * 100vh);
+    width: calc((0.7) * 100vw);
+    height: var(--img-height);
     overflow: hidden;
   }
 
   &__pic {
-    /*&:not(:first-child) {
-      // TEMP
-      display: none;
-    }*/
   }
 
   &__img {
@@ -26,9 +23,36 @@
 }
 
 .controls-slider {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &__item {
   }
 
   &__button {
+    width: 30px;
+    height: auto;
+
+    & img {
+      filter: invert(100%) sepia(0%) saturate(2916%) hue-rotate(114deg)
+        brightness(119%) contrast(73%);
+    }
+  }
+
+  &__arrow {
+    &--left {
+    }
+    &--right {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__wheel {
+    &--left {
+    }
+    &--right {
+    }
   }
 }
