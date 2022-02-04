@@ -2,20 +2,10 @@
 
 .news {
   margin-bottom: variables.$separation-bottom;
-  box-shadow: variables.$box-shadow-dark;
-  border: 0.9375rem solid;
-  border-top: 1.25rem solid;
-  border-bottom: 3rem solid;
-  border-color: rgb(40, 40, 40);
-  border-radius: 0.875rem;
   position: relative;
-
-  @media screen and (max-width: variables.$container-medium) {
-    border: 0.625rem solid;
-    border-top: 0.9375rem solid;
-    border-bottom: 3rem solid;
-    border-color: rgb(40, 40, 40);
-  }
+  box-shadow: variables.$box-shadow-dark;
+  border: 0.375rem solid;
+  border-color: black;
 
   &__wrapper {
     position: relative;
@@ -158,8 +148,8 @@
       height: 0.625rem;
     }
 
-    &--active,
-    &:hover {
+    &:hover,
+    &--active {
       background: variables.$color-dot;
     }
   }

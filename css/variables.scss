@@ -14,7 +14,14 @@ $container-small: 23rem;
 $container-x-small: 17.5rem;
 
 // Colors
-$color-background: rgb(29, 32, 51);
+$color-background: linear-gradient(
+  to right bottom,
+  #1d2033,
+  #171a2b,
+  #121424,
+  #0b0b1d,
+  #000016
+);
 $color-text: whitesmoke;
 $color-dot: gainsboro;
 

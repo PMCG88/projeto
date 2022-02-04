@@ -6,9 +6,9 @@ const next = document.querySelector(".news__next");
 const play = document.querySelector(".news__play");
 const pause = document.querySelector(".news__pause");
 const links = document.querySelector(".news__wrapper");
-const mutationObserver = new MutationObserver(changeLink);
+const linkMutationObserver = new MutationObserver(changeLink);
 
-mutationObserver.observe(links, {
+linkMutationObserver.observe(links, {
   attributeFilter: ["class"],
   childList: true,
   subtree: true,
@@ -145,8 +145,8 @@ function onPlayPauseClick() {
 
 function changeLink() {
   const activeLink = document.querySelector(".news__link--active");
-  const iframe = activeLink.firstElementChild;
-  const href = iframe.getAttribute("src");
+  const activeIframe = activeLink.firstElementChild;
+  const href = activeIframe.getAttribute("src");
   const goToLink = document.querySelector(".news__go-to-link");
   goToLink.setAttribute("href", href);
 }
