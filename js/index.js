@@ -145,8 +145,7 @@ function onPlayPauseClick() {
 
 function changeLink() {
   const activeLink = document.querySelector(".news__link--active");
-  const activeIframe = activeLink.firstElementChild;
-  const href = activeIframe.getAttribute("src");
   const goToLink = document.querySelector(".news__go-to-link");
+  const href = activeLink.firstElementChild.getAttribute("src");
   goToLink.setAttribute("href", href);
 }

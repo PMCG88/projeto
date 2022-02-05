@@ -1,20 +1,25 @@
 @use "variables";
 
 .models {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
 
   &__wrapper {
-    display: inline-block;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: calc((0.7) * 100vw);
     height: var(--img-height);
     overflow: hidden;
   }
 
-  &__pic {
+  &__slide {
+    position: absolute;
+    width: 100%;
   }
 
   &__img {
@@ -32,7 +37,7 @@
   }
 
   &__button {
-    width: 30px;
+    width: calc(0.02 * 100vw);
     height: auto;
 
     & img {
@@ -51,8 +56,20 @@
 
   &__wheel {
     &--left {
+      &:hover {
+        transform: rotate(-25deg);
+      }
+      &:active {
+        transform: rotate(-45deg);
+      }
     }
     &--right {
+      &:hover {
+        transform: rotate(25deg);
+      }
+      &:active {
+        transform: rotate(45deg);
+      }
     }
   }
 }
