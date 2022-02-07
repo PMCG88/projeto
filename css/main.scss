@@ -143,6 +143,11 @@ img {
   max-width: 100%;
 }
 
+img,
+a {
+  -webkit-user-drag: none;
+}
+
 h2 {
   font-size: variables.$font-size-h2-large;
   padding-left: variables.$separation-sides;

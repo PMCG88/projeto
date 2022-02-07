@@ -22,6 +22,8 @@ prev.addEventListener("click", prevLink);
 next.addEventListener("click", nextLink);
 play.addEventListener("click", onPlayPauseClick);
 pause.addEventListener("click", onPlayPauseClick);
+window.addEventListener("keyup", onKeyUp);
+window.addEventListener("keydown", preventSpacebarScrolling);
 
 function setNewsTimer() {
   clearInterval(newsTimer);
@@ -145,7 +147,23 @@ function onPlayPauseClick() {
 
 function changeLink() {
   const activeLink = document.querySelector(".news__link--active");
-  const goToLink = document.querySelector(".news__go-to-link");
   const href = activeLink.firstElementChild.getAttribute("src");
+  const goToLink = document.querySelector(".news__go-to-link");
   goToLink.setAttribute("href", href);
+}
+
+function onKeyUp(event) {
+  if (event.keyCode === 32) {
+    onPlayPauseClick();
+  } else if (event.keyCode === 37) {
+    prevLink();
+  } else if (event.keyCode === 39) {
+    nextLink();
+  }
+}
+
+function preventSpacebarScrolling(event) {
+  if (event.keyCode === 32 && event.target === document.body) {
+    event.preventDefault();
+  }
 }
