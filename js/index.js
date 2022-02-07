@@ -153,17 +153,17 @@ function changeLink() {
 }
 
 function onKeyUp(event) {
-  if (event.keyCode === 32) {
+  if (event.key === " ") {
     onPlayPauseClick();
-  } else if (event.keyCode === 37) {
+  } else if (event.key === "ArrowLeft") {
     prevLink();
-  } else if (event.keyCode === 39) {
+  } else if (event.key === "ArrowRight") {
     nextLink();
   }
 }
 
 function preventSpacebarScrolling(event) {
-  if (event.keyCode === 32 && event.target === document.body) {
+  if (event.key === " " && event.target === document.body) {
     event.preventDefault();
   }
 }
