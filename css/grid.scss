@@ -1,7 +1,7 @@
 @use "variables";
 
 .grid {
-  margin-bottom: variables.$separation-bottom;
+  margin: variables.$separation-bottom 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: variables.$separation-grid-gap;

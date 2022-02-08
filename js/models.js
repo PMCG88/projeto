@@ -30,10 +30,16 @@ function nextSlide() {
     activeSlide.parentElement.firstElementChild;
   activeSlide.classList.remove("models__slide--active");
   nextSlide.classList.add("models__slide--active");
-  const wrapper = document.querySelector(".models__wrapper");
-  const slideWidth = nextSlide.offsetWidth;
-  wrapper.style.transform = "translateX(-" + slideWidth + "px)";
-  console.log(slideWidth, wrapper.style.transform);
+  const scroll = document.querySelector(".models__scroll");
+  const distance = nextSlide.style.left;
+  scroll.style.transform = "translateX(-" + distance + ")";
+
+  const activeLabel = document.querySelector(".controls__label--active");
+  const nextLabel =
+    activeLabel.nextElementSibling ||
+    activeLabel.parentElement.firstElementChild;
+  activeLabel.classList.remove("controls__label--active");
+  nextLabel.classList.add("controls__label--active");
 }
 
 function prevSlide() {
@@ -43,8 +49,14 @@ function prevSlide() {
     activeSlide.parentElement.lastElementChild;
   activeSlide.classList.remove("models__slide--active");
   prevSlide.classList.add("models__slide--active");
-  const wrapper = document.querySelector(".models__wrapper");
-  const slideWidth = prevSlide.offsetWidth;
-  wrapper.style.transform = "translateX(-" + slideWidth + "px)";
-  console.log(slideWidth, wrapper.style.transform);
+  const scroll = document.querySelector(".models__scroll");
+  const distance = prevSlide.style.left;
+  scroll.style.transform = "translateX(-" + distance + ")";
+
+  const activeLabel = document.querySelector(".controls__label--active");
+  const prevLabel =
+    activeLabel.previousElementSibling ||
+    activeLabel.parentElement.lastElementChild;
+  activeLabel.classList.remove("controls__label--active");
+  prevLabel.classList.add("controls__label--active");
 }

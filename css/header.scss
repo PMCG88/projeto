@@ -1,7 +1,6 @@
 @use "variables";
 
 .header {
-  margin-bottom: variables.$separation-bottom;
   border-bottom: 1px groove variables.$color-dot;
   &__logo {
   }

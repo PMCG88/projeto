@@ -1,20 +1,21 @@
 @use "variables";
 
 .models {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 
   &__wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 70vw;
     height: var(--img-height);
     overflow: hidden;
+  }
+
+  &__scroll {
+    position: relative;
+    transition: 1s;
   }
 
   &__slide {
@@ -28,18 +29,36 @@
 }
 
 .controls {
-  &__text {
-  }
+  display: flex;
   &__item {
-    position: absolute;
-    width: 4%;
+    width: 2.68rem;
     height: auto;
-    &--left {
-      left: 0;
+
+    &:nth-child(2) {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10rem;
     }
-    &--right {
-      right: 0;
+  }
+
+  &__label {
+    position: absolute;
+    font-family: "Broadbandoblique";
+    font-size: 4rem;
+    color: #b2bec3;
+    opacity: 0;
+    top: -85%;
+
+    &--active {
+      opacity: 1;
+      transition: 1s;
     }
+  }
+
+  &__name {
+    display: none;
   }
 
   &__button {
@@ -61,6 +80,7 @@
 
   &__arrow {
     width: 65%;
+
     &--left {
     }
     &--right {
