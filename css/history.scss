@@ -1,8 +1,6 @@
 @use "variables";
 
 .history {
-  margin-bottom: variables.$separation-bottom;
-
   &__title {
   }
 
@@ -22,6 +20,10 @@
     align-items: center;
     padding: 0 variables.$separation-sides;
     margin-bottom: variables.$separation-bottom;
+
+    & h2 {
+      padding: 0;
+    }
   }
 
   &__subtitle {
@@ -37,7 +39,7 @@
     &-logos {
       max-height: 50rem;
       border-radius: 0.5rem;
-      box-shadow: variables.$box-shadow-dark;
+      box-shadow: variables.$box-shadow-dark-inset;
     }
     &-wiki {
     }

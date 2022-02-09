@@ -1,7 +1,7 @@
 @use "variables";
 
 .grid {
-  margin: variables.$separation-bottom 0;
+  margin-bottom: variables.$separation-bottom;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: variables.$separation-grid-gap;
@@ -36,10 +36,11 @@
     box-shadow: variables.$box-shadow-light;
 
     &:hover {
-      box-shadow: variables.$box-shadow-dark;
+      box-shadow: variables.$box-shadow-dark-inset;
     }
   }
 
   &__title {
+    margin-top: 0.5 * variables.$separation-bottom;
   }
 }

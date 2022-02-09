@@ -26,17 +26,34 @@
   <body>
     <h1 class="title">BMW</h1>
 
-    <header class="header">
-      <div class="header__logo">
+    <header class="header" id="header">
+      <picture class="header__logo">
         <img
-          class="header__logo-img"
+          class="header__img"
           src="img/svg/bmw new white.svg"
-          alt="BMW White Logo"
+          alt="BMW New Logo White"
         />
-      </div>
+      </picture>
+      <nav class="header__nav">
+        <a class="header__anchor" href="#grid">
+          <h3 class="header__title">Choose your drive</h3>
+        </a>
+        <a class="header__anchor" href="#news">
+          <h3 class="header__title">BMW Community</h3>
+        </a>
+        <a class="header__anchor" href="#history">
+          <h3 class="header__title">Brand History</h3>
+        </a>
+        <a class="header__anchor" href="#wiki">
+          <h3 class="header__title">Wikipedia</h3>
+        </a>
+        <a class="header__anchor" href="#footer">
+          <h3 class="header__title">Social Media</h3>
+        </a>
+      </nav>
     </header>
 
-    <h2 class="grid__title">What's your drive?</h2>
+    <h2 class="grid__title" id="grid">What's your drive?</h2>
 
     <div class="container container__grid">
       <section class="grid">
@@ -102,7 +119,9 @@
       </section>
     </div>
 
-    <h2 class="news__title">The BMW community is thriving, check it out:</h2>
+    <h2 class="news__title" id="news">
+      The BMW community is thriving, check it out:
+    </h2>
 
     <div class="container container__news">
       <section class="news">
@@ -215,7 +234,7 @@
       </section>
     </div>
 
-    <h2 class="history__title">Learn more about the brand:</h2>
+    <h2 class="history__title" id="history">Learn more about the brand:</h2>
 
     <div class="container container__history">
       <article class="history">
@@ -282,7 +301,7 @@
       </article>
     </div>
     <section class="history__wiki">
-      <h2 class="history__title">Would you like to know more?&nbsp;&nbsp;</h2>
+      <h2 class="history__title" id="wiki">Would you like to know more?</h2>
       <a
         class="history__link"
         href="https://en.wikipedia.org/wiki/BMW"
@@ -296,33 +315,27 @@
       </a>
     </section>
 
-    <footer class="footer">
-      <div class="footer__logo">
+    <footer class="footer" id="footer">
+      <nav class="footer__nav">
+        <a class="footer__anchor" href="#header">
+          <h3 class="footer__title">Back to top</h3>
+        </a>
+        <a class="footer__anchor" href="#">
+          <h3 class="footer__title">Contact us</h3>
+        </a>
+      </nav>
+      <picture class="footer__logo">
         <img
-          class="footer__logo-img"
+          class="footer__img"
           src="img/svg/bmw new white.svg"
           alt="BMW White Logo"
         />
-      </div>
+      </picture>
     </footer>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script src="js/index.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-      window.ga = function () {
-        ga.q.push(arguments);
-      };
-      ga.q = [];
-      ga.l = +new Date();
-      ga("create", "UA-XXXXX-Y", "auto");
-      ga("set", "anonymizeIp", true);
-      ga("set", "transport", "beacon");
-      ga("send", "pageview");
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
   </body>
 </html>

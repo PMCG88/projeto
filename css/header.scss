@@ -2,8 +2,53 @@
 
 .header {
   border-bottom: 1px groove variables.$color-dot;
-  &__logo {
+
+  &__anchor {
+    margin-right: 2 * variables.$separation-sides;
   }
-  &__logo-img {
+}
+
+.header,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    margin: 5px;
+    display: inline-block;
+    height: 6rem;
+    width: 6rem;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__anchor {
+    display: flex;
+    align-items: center;
+    border: 1px groove rgba(220, 220, 220, 0.1);
+    border-radius: 0.4rem;
+    padding: variables.$separation-sides;
+    box-shadow: variables.$box-shadow-light;
+
+    &:hover {
+      box-shadow: variables.$box-shadow-dark;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    line-height: 80%;
+    white-space: nowrap;
+    text-shadow: variables.$text-shadow-strong;
   }
 }
