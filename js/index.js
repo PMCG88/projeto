@@ -26,7 +26,7 @@ window.addEventListener("keyup", onKeyUp);
 window.addEventListener("keydown", preventSpacebarScrolling);
 window.addEventListener("resize", setModelImageHeight);
 
-setModelImageHeight();
+setTimeout(setModelImageHeight, 200);
 
 function setNewsTimer() {
   clearInterval(newsTimer);
@@ -177,9 +177,17 @@ function setModelImageHeight() {
   const subtitle = card.lastElementChild.firstElementChild;
   const cardHeight = card.offsetHeight;
   const subtitleHeight = subtitle.offsetHeight;
-  const height = (cardHeight - subtitleHeight) / 3;
-  const images = document.querySelectorAll(".grid__model");
-  images.forEach((image) => {
-    image.style.setProperty("--model-height", height + "px");
+
+  const models = document.querySelectorAll(".grid__models");
+
+  models.forEach((models) => {
+    const height = (cardHeight - subtitleHeight) / models.childElementCount;
+
+    const images = Array.from(models.children);
+
+    images.forEach((image) => {
+      image.style.setProperty("--model-height", height + "px");
+      image.style.setProperty("--small-model-height", height / 2 + "px");
+    });
   });
 }
