@@ -15,32 +15,103 @@
   }
 
   &__card {
-    transition: 1s;
+    position: relative;
+    z-index: 1;
+    transition: transform 1s, z-index 0s;
+    display: flex;
+    justify-content: end;
 
     @media screen and (min-width: variables.$container-medium) {
       &:hover {
-        z-index: 10;
         transform: scale(1.1);
+        z-index: 2;
       }
+
       &:not(:hover) {
-        transition: 750ms;
+        transition: transform 750ms;
       }
     }
   }
 
   &__link {
+    position: relative;
+    z-index: 2;
+
+    @media screen and (min-width: variables.$container-medium) {
+      &:hover {
+        & > .grid__img {
+          box-shadow: variables.$box-shadow-dark-inset;
+          border-radius: 0.5rem 0 0 0.5rem;
+        }
+
+        & + .grid__layer {
+          transform: translateX(98%);
+          transition: 1s;
+
+          & .grid__model {
+            border-radius: 0;
+
+            &:last-child {
+              border-radius: 0 0 0.5rem;
+            }
+          }
+        }
+      }
+    }
   }
 
   &__img {
     border-radius: 0.5rem;
     box-shadow: variables.$box-shadow-light;
-
-    &:hover {
-      box-shadow: variables.$box-shadow-dark-inset;
-    }
   }
 
   &__title {
     margin-top: 0.5 * variables.$separation-bottom;
+  }
+
+  &__layer {
+    position: absolute;
+    bottom: 0;
+    width: 92%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: transparentize($color: #1d2033, $amount: 0.1%);
+    border-radius: 0 0.5rem 0.5rem 0;
+
+    @media screen and (max-width: variables.$container-medium) {
+      justify-content: space-between;
+    }
+  }
+
+  &__subtitle {
+    font-size: variables.$font-size-h2-small;
+    margin: variables.$separation-sides 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+
+    @media screen and (max-width: variables.$container-x-small) {
+      font-size: variables.$font-size-text-medium;
+    }
+  }
+
+  &__models {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__model {
+    height: var(--model-height);
+    width: auto;
   }
 }

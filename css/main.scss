@@ -112,7 +112,6 @@ textarea {
 
 html {
   box-sizing: border-box;
-  max-width: 100vw;
   scroll-behavior: smooth;
 }
 
@@ -126,6 +125,7 @@ body {
   background: variables.$color-background;
   font-family: "Fira Sans Extra Condensed", sans-serif;
   color: variables.$color-text;
+  max-width: 100%;
 }
 
 a,
@@ -218,7 +218,7 @@ h3 {
   width: 100%;
   max-width: variables.$container-large;
   margin: 0 auto;
-  padding: 0 variables.$separation-sides;
+  padding: 0 (3 * variables.$separation-sides);
 
   @media screen and (max-width: variables.$container-large) {
     max-width: variables.$container-medium;

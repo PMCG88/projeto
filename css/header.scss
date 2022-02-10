@@ -42,6 +42,10 @@
     &:hover {
       box-shadow: variables.$box-shadow-dark;
     }
+
+    &:active {
+      box-shadow: variables.$box-shadow-light;
+    }
   }
 
   &__title {

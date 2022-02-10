@@ -3,6 +3,7 @@ const prev = document.querySelector(".controls__button--left");
 
 next.addEventListener("click", nextSlide);
 prev.addEventListener("click", prevSlide);
+window.addEventListener("resize", setWrapperHeight);
 
 setTimeout(setWrapperHeight, 200);
 positionSlides();

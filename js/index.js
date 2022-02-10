@@ -24,6 +24,9 @@ play.addEventListener("click", onPlayPauseClick);
 pause.addEventListener("click", onPlayPauseClick);
 window.addEventListener("keyup", onKeyUp);
 window.addEventListener("keydown", preventSpacebarScrolling);
+window.addEventListener("resize", setModelImageHeight);
+
+setModelImageHeight();
 
 function setNewsTimer() {
   clearInterval(newsTimer);
@@ -166,4 +169,17 @@ function preventSpacebarScrolling(event) {
   if (event.key === " " && event.target === document.body) {
     event.preventDefault();
   }
+}
+
+function setModelImageHeight() {
+  const grid = document.querySelector(".grid");
+  const card = grid.firstElementChild;
+  const subtitle = card.lastElementChild.firstElementChild;
+  const cardHeight = card.offsetHeight;
+  const subtitleHeight = subtitle.offsetHeight;
+  const height = (cardHeight - subtitleHeight) / 3;
+  const images = document.querySelectorAll(".grid__model");
+  images.forEach((image) => {
+    image.style.setProperty("--model-height", height + "px");
+  });
 }
