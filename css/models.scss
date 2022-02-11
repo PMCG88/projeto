@@ -6,6 +6,7 @@
   align-items: center;
   flex-direction: column;
   position: relative;
+  margin-bottom: 1.5 * variables.$separation-bottom;
 
   &__wrapper {
     width: 70vw;

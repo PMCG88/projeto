@@ -95,11 +95,10 @@
     border-radius: 0 0.5rem 0.5rem 0;
 
     @media screen and (max-width: variables.$container-medium) {
-      width: 100%;
+      width: 101%;
       border-radius: 0.5rem;
       justify-content: space-between;
-      opacity: 0.5;
-      background-color: transparent;
+      background-color: transparentize($color: #1d2033, $amount: 0.1%);
     }
   }
 
@@ -126,7 +125,6 @@
     justify-content: center;
 
     @media screen and (max-width: variables.$container-medium) {
-      align-items: flex-start;
     }
   }
 
@@ -152,10 +150,16 @@
     }
 
     @media screen and (max-width: variables.$container-medium) {
-      height: var(--small-model-height);
+      &[alt="BMW 1 Series"] {
+        left: 2%;
+      }
 
       &[alt="BMW 2 Series Active Tourer"] {
         left: 2.5%;
+      }
+
+      &[alt="BMW M8"] {
+        left: 0;
       }
     }
   }

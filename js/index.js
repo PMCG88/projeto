@@ -6,6 +6,7 @@ const next = document.querySelector(".news__next");
 const play = document.querySelector(".news__play");
 const pause = document.querySelector(".news__pause");
 const links = document.querySelector(".news__wrapper");
+const welcome = document.querySelector(".welcome");
 const linkMutationObserver = new MutationObserver(changeLink);
 
 linkMutationObserver.observe(links, {
@@ -25,7 +26,10 @@ pause.addEventListener("click", onPlayPauseClick);
 window.addEventListener("keyup", onKeyUp);
 window.addEventListener("keydown", preventSpacebarScrolling);
 window.addEventListener("resize", setModelImageHeight);
+window.addEventListener("scroll", removeWelcome);
+welcome.addEventListener("click", removeWelcome);
 
+setWelcome();
 setTimeout(setModelImageHeight, 200);
 
 function setNewsTimer() {
@@ -187,7 +191,29 @@ function setModelImageHeight() {
 
     images.forEach((image) => {
       image.style.setProperty("--model-height", height + "px");
-      image.style.setProperty("--small-model-height", height / 2 + "px");
     });
   });
+}
+
+function setWelcome() {
+  const welcome = document.querySelector(".welcome");
+  const image = document.querySelector(".welcome__img");
+  const title = document.querySelector(".welcome__title");
+  const height = window.innerHeight;
+  welcome.style.setProperty("--page-height", height + "px");
+  image.style.opacity = 1;
+  setTimeout(() => {
+    title.style.opacity = 0.8;
+  }, 2000);
+}
+
+function removeWelcome() {
+  const welcome = document.querySelector(".welcome");
+  welcome.style.setProperty("pointer-events", "none");
+  welcome.style.opacity = 0;
+  window.removeEventListener("scroll", removeWelcome);
+  welcome.removeEventListener("click", removeWelcome);
+  setTimeout(() => {
+    welcome.remove();
+  }, 1500);
 }

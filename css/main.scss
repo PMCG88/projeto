@@ -6,6 +6,7 @@
 @use "news";
 @use "history";
 @use "models";
+@use "welcome";
 
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
@@ -113,6 +114,7 @@ textarea {
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  max-width: 100%;
 }
 
 *,
@@ -125,7 +127,6 @@ body {
   background: variables.$color-background;
   font-family: "Fira Sans Extra Condensed", sans-serif;
   color: variables.$color-text;
-  max-width: 100%;
 }
 
 a,
@@ -179,7 +180,7 @@ h3 {
 
 h2 {
   font-size: variables.$font-size-h2-large;
-  padding-left: variables.$separation-sides;
+  margin-left: variables.$separation-sides;
 
   @media screen and (max-width: variables.$container-large) {
     font-size: variables.$font-size-h2-medium;
