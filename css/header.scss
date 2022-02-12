@@ -126,18 +126,18 @@
 
   &__logo {
     margin: variables.$separation-logo variables.$separation-logo
-      variables.$separation-header-large variables.$separation-logo;
+      variables.$separation-logo variables.$separation-header-large;
     width: 6rem;
     height: auto;
 
     @media screen and (max-width: variables.$container-large) {
       margin: variables.$separation-logo variables.$separation-logo
-        variables.$separation-header-medium variables.$separation-logo;
+        variables.$separation-logo variables.$separation-header-medium;
     }
 
     @media screen and (max-width: variables.$container-medium) {
       margin: variables.$separation-logo variables.$separation-logo
-        variables.$separation-header-small variables.$separation-logo;
+        variables.$separation-logo variables.$separation-header-small;
     }
   }
 }
