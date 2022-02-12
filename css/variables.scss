@@ -6,6 +6,12 @@ $separation-sides: 1rem;
 $separation-text-bottom: 2rem;
 // Grid
 $separation-grid-gap: 0.75rem;
+// Header & Footer
+$separation-header-large: 1rem;
+$separation-header-medium: 0.7rem;
+$separation-header-small: 0.4rem;
+// Logo
+$separation-logo: 0.3125rem;
 
 //// Container sizes for responsive
 $container-large: 69rem;
@@ -33,6 +39,10 @@ $font-size-h2-small: 1.875rem;
 // h3: subtitle
 $font-size-h3-large: 1.875rem;
 $font-size-h3-small: 1.6875rem;
+// h4: header & footer
+$font-size-h4-large: 1.6875rem;
+$font-size-h4-medium: 1.2rem;
+$font-size-h4-small: 1rem;
 // text
 $font-size-text-large: 1.125rem;
 $font-size-text-medium: 1rem;

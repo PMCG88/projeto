@@ -23,7 +23,8 @@
 
     & h2 {
       padding: 0;
-      margin-top: 1.5 * variables.$separation-bottom;
+      margin: (1.5 * variables.$separation-bottom) 0 variables.$separation-sides;
+      text-align: center;
     }
   }
 

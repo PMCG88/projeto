@@ -1,5 +1,14 @@
 @use "variables";
 
+//       ntn-child(3n)      nth-child(even)
+//       header a aparecer e desaparecer
+//       social no footer
+//       welcome a injetar nome no user
+//       accordion com options
+//       page proposal to print
+//       form contact
+//       react
+
 .grid {
   margin-bottom: variables.$separation-bottom;
   display: grid;
@@ -53,14 +62,6 @@
         & + .grid__layer {
           transform: translateX(98%);
           transition: 1s;
-
-          & .grid__model {
-            border-radius: 0;
-
-            &:last-child {
-              border-radius: 0 0 0.5rem;
-            }
-          }
         }
       }
     }
@@ -98,7 +99,6 @@
       width: 101%;
       border-radius: 0.5rem;
       justify-content: space-between;
-      background-color: transparentize($color: #1d2033, $amount: 0.1%);
     }
   }
 
@@ -123,9 +123,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    @media screen and (max-width: variables.$container-medium) {
-    }
   }
 
   &__model {
@@ -135,31 +132,23 @@
     position: relative;
     left: 5%;
 
+    &[alt="BMW 1 Series"] {
+      left: 2%;
+    }
+
+    &[alt="BMW M8"] {
+      left: 0;
+    }
+
     @media screen and (min-width: variables.$container-medium) {
-      &[alt="BMW 1 Series"] {
-        left: 2%;
-      }
-
       &[alt="BMW 2 Series Active Tourer"] {
-        left: 0;
-      }
-
-      &[alt="BMW M8"] {
         left: 0;
       }
     }
 
     @media screen and (max-width: variables.$container-medium) {
-      &[alt="BMW 1 Series"] {
-        left: 2%;
-      }
-
       &[alt="BMW 2 Series Active Tourer"] {
         left: 2.5%;
-      }
-
-      &[alt="BMW M8"] {
-        left: 0;
       }
     }
   }

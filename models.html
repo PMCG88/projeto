@@ -26,14 +26,19 @@
   <body>
     <h1 class="title">BMW: Model Selection</h1>
 
-    <header class="header">
-      <div class="header__logo">
+    <header class="header" id="header">
+      <picture class="header__logo">
         <img
-          class="header__logo-img"
+          class="header__img"
           src="img/svg/bmw new white.svg"
-          alt="BMW White Logo"
+          alt="BMW New Logo White"
         />
-      </div>
+      </picture>
+      <nav class="header__nav">
+        <a class="header__anchor" href="#footer">
+          <h4 class="header__title">Social Media</h4>
+        </a>
+      </nav>
     </header>
 
     <div class="container container__models">
@@ -103,14 +108,23 @@
       </section>
     </div>
 
-    <footer class="footer">
-      <div class="footer__logo">
+    <footer class="footer" id="footer">
+      <nav class="footer__nav">
+        <a class="footer__anchor" href="#header">
+          <span class="material-icons-outlined">forward</span>&nbsp;
+          <h4 class="footer__title">Back to top</h4>
+        </a>
+        <a class="footer__anchor" href="#">
+          <h4 class="footer__title">Contact Us</h4>
+        </a>
+      </nav>
+      <picture class="footer__logo">
         <img
-          class="footer__logo-img"
+          class="footer__img"
           src="img/svg/bmw new white.svg"
           alt="BMW White Logo"
         />
-      </div>
+      </picture>
     </footer>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>

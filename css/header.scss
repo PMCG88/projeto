@@ -1,24 +1,16 @@
 @use "variables";
 
-.header {
-  border-bottom: 1px groove variables.$color-dot;
-
-  &__anchor {
-    margin-right: 2 * variables.$separation-sides;
-  }
-}
-
 .header,
 .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  &__logo {
-    margin: 5px;
-    display: inline-block;
-    height: 6rem;
-    width: 6rem;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   &__img {
@@ -29,6 +21,7 @@
   &__nav {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   &__anchor {
@@ -36,23 +29,115 @@
     align-items: center;
     border: 1px groove rgba(220, 220, 220, 0.1);
     border-radius: 0.4rem;
-    padding: variables.$separation-sides;
+    padding: 0.8 * variables.$separation-sides;
     box-shadow: variables.$box-shadow-light;
+    margin-top: 0.5 * variables.$separation-header-small;
+    margin-bottom: 0.5 * variables.$separation-header-small;
 
     &:hover {
       box-shadow: variables.$box-shadow-dark;
     }
 
-    &:active {
-      box-shadow: variables.$box-shadow-light;
+    & * {
+      line-height: 80%;
     }
   }
 
   &__title {
     margin: 0;
     padding: 0;
-    line-height: 80%;
     white-space: nowrap;
     text-shadow: variables.$text-shadow-strong;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.header {
+  border-bottom: 1px groove variables.$color-dot;
+
+  &__greeting {
+    font-style: normal;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &-text {
+      margin: 0;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin-top: variables.$separation-header-small;
+    }
+  }
+
+  &__anchor {
+    margin-right: variables.$separation-header-large;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin-right: variables.$separation-header-medium;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin-right: variables.$separation-header-small;
+    }
+  }
+
+  &__logo {
+    margin: variables.$separation-logo variables.$separation-header-large
+      variables.$separation-logo variables.$separation-logo;
+    width: 6rem;
+    height: auto;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin: variables.$separation-logo variables.$separation-header-medium
+        variables.$separation-logo variables.$separation-logo;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin: variables.$separation-logo variables.$separation-header-small
+        variables.$separation-logo variables.$separation-logo;
+    }
+  }
+}
+
+.footer {
+  border-top: 1px groove variables.$color-dot;
+
+  &__anchor {
+    margin-left: variables.$separation-header-large;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin-left: variables.$separation-header-medium;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin-left: variables.$separation-header-small;
+    }
+
+    & span {
+      color: variables.$color-dot;
+      transform: rotateZ(-90deg);
+    }
+  }
+
+  &__logo {
+    margin: variables.$separation-logo variables.$separation-logo
+      variables.$separation-header-large variables.$separation-logo;
+    width: 6rem;
+    height: auto;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin: variables.$separation-logo variables.$separation-logo
+        variables.$separation-header-medium variables.$separation-logo;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin: variables.$separation-logo variables.$separation-logo
+        variables.$separation-header-small variables.$separation-logo;
+    }
   }
 }
