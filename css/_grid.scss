@@ -165,8 +165,20 @@
       left: 2%;
     }
 
+    &[alt="BMW 4 Series"] {
+      left: 7%;
+    }
+
     &[alt="BMW M8"] {
       left: 0;
+    }
+
+    &[alt="BMW i3"] {
+      left: 7%;
+    }
+
+    &[alt="BMW iX"] {
+      left: 9%;
     }
 
     @media screen and (min-width: variables.$container-medium) {
