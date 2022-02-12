@@ -57,23 +57,6 @@
 .header {
   border-bottom: 1px groove variables.$color-dot;
 
-  &__greeting {
-    font-style: normal;
-    font-weight: 300;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-    &-text {
-      margin: 0;
-    }
-
-    @media screen and (max-width: variables.$container-medium) {
-      margin-top: variables.$separation-header-small;
-    }
-  }
-
   &__anchor {
     margin-right: variables.$separation-header-large;
 

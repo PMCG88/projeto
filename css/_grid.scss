@@ -1,14 +1,5 @@
 @use "variables";
 
-//       ntn-child(3n)      nth-child(even)
-//       header a aparecer e desaparecer
-//       social no footer
-//       welcome a injetar nome no user
-//       accordion com options
-//       page proposal to print
-//       form contact
-//       react
-
 .grid {
   margin-bottom: variables.$separation-bottom;
   display: grid;
@@ -34,10 +25,61 @@
       &:hover {
         transform: scale(1.1);
         z-index: 2;
+
+        & > .grid__link {
+          & > .grid__img {
+            box-shadow: variables.$box-shadow-dark-inset;
+            border-radius: 0.5rem 0 0 0.5rem;
+          }
+
+          & + .grid__layer {
+            transition: 1s;
+            transform: translateX(98%);
+            border-radius: 0 0.5rem 0.5rem 0;
+          }
+        }
       }
 
       &:not(:hover) {
         transition: transform 750ms;
+      }
+    }
+
+    @media screen and (min-width: variables.$container-large) {
+      &:nth-child(3n) {
+        justify-content: start;
+
+        &:hover {
+          & > .grid__link {
+            & > .grid__img {
+              border-radius: 0 0.5rem 0.5rem 0;
+            }
+
+            & + .grid__layer {
+              transform: translateX(-98%);
+              border-radius: 0.5rem 0 0 0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: variables.$container-large) and (min-width: variables.$container-medium) {
+      &:nth-child(2n) {
+        justify-content: start;
+
+        &:hover {
+          & > .grid__link {
+            & > .grid__img {
+              border-radius: 0 0.5rem 0.5rem 0;
+            }
+
+            & + .grid__layer {
+              transform: translateX(-98%);
+              border-radius: 0.5rem 0 0 0.5rem;
+            }
+          }
+        }
       }
     }
 
@@ -51,20 +93,6 @@
     width: 100%;
     height: 100%;
     z-index: 2;
-
-    @media screen and (min-width: variables.$container-medium) {
-      &:hover {
-        & > .grid__img {
-          box-shadow: variables.$box-shadow-dark-inset;
-          border-radius: 0.5rem 0 0 0.5rem;
-        }
-
-        & + .grid__layer {
-          transform: translateX(98%);
-          transition: 1s;
-        }
-      }
-    }
 
     @media screen and (max-width: variables.$container-medium) {
       z-index: 0;
@@ -93,12 +121,13 @@
     justify-content: center;
     z-index: 1;
     background-color: transparentize($color: #1d2033, $amount: 0.1%);
-    border-radius: 0 0.5rem 0.5rem 0;
+    border-radius: 0.5rem;
+    pointer-events: none;
 
     @media screen and (max-width: variables.$container-medium) {
       width: 101%;
-      border-radius: 0.5rem;
       justify-content: space-between;
+      pointer-events: auto;
     }
   }
 

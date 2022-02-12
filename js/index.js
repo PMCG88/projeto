@@ -26,7 +26,7 @@ pause.addEventListener("click", onPlayPauseClick);
 window.addEventListener("keyup", onKeyUp);
 window.addEventListener("keydown", preventSpacebarScrolling);
 window.addEventListener("resize", setModelImageHeight);
-window.addEventListener("wheel", removeWelcome);
+window.addEventListener("scroll", removeWelcome);
 welcome.addEventListener("click", removeWelcome);
 
 setWelcome();
@@ -211,10 +211,10 @@ function removeWelcome() {
   welcome.style.setProperty("pointer-events", "none");
   welcome.style.opacity = 0;
 
-  window.removeEventListener("wheel", removeWelcome);
+  window.removeEventListener("scroll", removeWelcome);
   welcome.removeEventListener("click", removeWelcome);
 
   setTimeout(() => {
     welcome.remove();
-  }, 1500);
+  }, 1400);
 }
