@@ -6,7 +6,9 @@ const next = document.querySelector(".news__next");
 const play = document.querySelector(".news__play");
 const pause = document.querySelector(".news__pause");
 const links = document.querySelector(".news__wrapper");
+const titles = document.querySelectorAll("body > h2");
 const welcome = document.querySelector(".welcome");
+
 const linkMutationObserver = new MutationObserver(changeLink);
 
 linkMutationObserver.observe(links, {
@@ -14,6 +16,21 @@ linkMutationObserver.observe(links, {
   childList: true,
   subtree: true,
 });
+
+const titleIntersectionObserver = new IntersectionObserver((titles) => {
+  titles.forEach((title) => {
+    if (title.isIntersecting) {
+      title.target.style.transform = "translateX(0%)";
+      titleIntersectionObserver.unobserve(title.target);
+    }
+  });
+});
+
+function setTitleIntersectionObserver() {
+  titles.forEach((title) => {
+    titleIntersectionObserver.observe(title);
+  });
+}
 
 dots.addEventListener("mouseover", onNewsDotMouseOver);
 dots.addEventListener("mouseout", onNewsDotMouseOut);
@@ -33,46 +50,60 @@ setWelcome();
 setTimeout(removeWelcome, 13000);
 setTimeout(setModelImageHeight, 200);
 
+function setWelcome() {
+  const image = document.querySelector(".welcome__img");
+  const title = document.querySelector(".welcome__title");
+
+  title.style.opacity = 0.7;
+
+  setTimeout(() => {
+    image.style.opacity = 1;
+  }, 3000);
+}
+
+function removeWelcome() {
+  welcome.style.setProperty("pointer-events", "none");
+  welcome.style.opacity = 0;
+  setTitleIntersectionObserver();
+
+  window.removeEventListener("scroll", removeWelcome);
+  welcome.removeEventListener("click", removeWelcome);
+
+  setTimeout(() => {
+    welcome.remove();
+  }, 1400);
+}
+
+function setModelImageHeight() {
+  const grid = document.querySelector(".grid");
+  const card = grid.firstElementChild;
+  const subtitle = card.lastElementChild.firstElementChild;
+  const cardHeight = card.offsetHeight;
+  const subtitleHeight = subtitle.offsetHeight;
+
+  const models = document.querySelectorAll(".grid__models");
+
+  models.forEach((models) => {
+    const height = (cardHeight - subtitleHeight) / models.childElementCount;
+
+    const images = Array.from(models.children);
+
+    images.forEach((image) => {
+      image.style.setProperty("--model-height", height + "px");
+    });
+  });
+}
+
 function setNewsTimer() {
   clearInterval(newsTimer);
   newsTimer = setInterval(nextLink, time);
 }
 
-function nextLink() {
+function changeLink() {
   const activeLink = document.querySelector(".news__link--active");
-  const nextLink =
-    activeLink.nextElementSibling || activeLink.parentElement.firstElementChild;
-  activeLink.classList.remove("news__link--active");
-  nextLink.classList.add("news__link--active");
-  const activeDot = document.querySelector(".news__dot--active");
-  activeDot.classList.remove("news__dot--active");
-  const indexNum = Array.from(nextLink.parentElement.children).indexOf(
-    nextLink
-  );
-  const targetDot = document.querySelector(
-    `.news__dot:nth-child(${indexNum + 1})`
-  );
-  targetDot.classList.add("news__dot--active");
-  setNewsTimer();
-}
-
-function prevLink() {
-  const activeLink = document.querySelector(".news__link--active");
-  const prevLink =
-    activeLink.previousElementSibling ||
-    activeLink.parentElement.lastElementChild;
-  activeLink.classList.remove("news__link--active");
-  prevLink.classList.add("news__link--active");
-  const activeDot = document.querySelector(".news__dot--active");
-  activeDot.classList.remove("news__dot--active");
-  const indexNum = Array.from(prevLink.parentElement.children).indexOf(
-    prevLink
-  );
-  const targetDot = document.querySelector(
-    `.news__dot:nth-child(${indexNum + 1})`
-  );
-  targetDot.classList.add("news__dot--active");
-  setNewsTimer();
+  const src = activeLink.firstElementChild.getAttribute("src");
+  const goToLink = document.querySelector(".news__go-to-link");
+  goToLink.setAttribute("href", src);
 }
 
 function onNewsDotMouseOver(event) {
@@ -141,6 +172,43 @@ function onNewsDotMouseDoubleClick(event) {
   }
 }
 
+function prevLink() {
+  const activeLink = document.querySelector(".news__link--active");
+  const prevLink =
+    activeLink.previousElementSibling ||
+    activeLink.parentElement.lastElementChild;
+  activeLink.classList.remove("news__link--active");
+  prevLink.classList.add("news__link--active");
+  const activeDot = document.querySelector(".news__dot--active");
+  activeDot.classList.remove("news__dot--active");
+  const indexNum = Array.from(prevLink.parentElement.children).indexOf(
+    prevLink
+  );
+  const targetDot = document.querySelector(
+    `.news__dot:nth-child(${indexNum + 1})`
+  );
+  targetDot.classList.add("news__dot--active");
+  setNewsTimer();
+}
+
+function nextLink() {
+  const activeLink = document.querySelector(".news__link--active");
+  const nextLink =
+    activeLink.nextElementSibling || activeLink.parentElement.firstElementChild;
+  activeLink.classList.remove("news__link--active");
+  nextLink.classList.add("news__link--active");
+  const activeDot = document.querySelector(".news__dot--active");
+  activeDot.classList.remove("news__dot--active");
+  const indexNum = Array.from(nextLink.parentElement.children).indexOf(
+    nextLink
+  );
+  const targetDot = document.querySelector(
+    `.news__dot:nth-child(${indexNum + 1})`
+  );
+  targetDot.classList.add("news__dot--active");
+  setNewsTimer();
+}
+
 function onPlayPauseClick() {
   if (play.classList.contains("news__play--show")) {
     play.classList.replace("news__play--show", "news__play--hide");
@@ -151,13 +219,6 @@ function onPlayPauseClick() {
     pause.classList.replace("news__pause--show", "news__pause--hide");
     clearInterval(newsTimer);
   }
-}
-
-function changeLink() {
-  const activeLink = document.querySelector(".news__link--active");
-  const src = activeLink.firstElementChild.getAttribute("src");
-  const goToLink = document.querySelector(".news__go-to-link");
-  goToLink.setAttribute("href", src);
 }
 
 function onKeyUp(event) {
@@ -174,47 +235,4 @@ function preventSpacebarScrolling(event) {
   if (event.key === " " && event.target === document.body) {
     event.preventDefault();
   }
-}
-
-function setModelImageHeight() {
-  const grid = document.querySelector(".grid");
-  const card = grid.firstElementChild;
-  const subtitle = card.lastElementChild.firstElementChild;
-  const cardHeight = card.offsetHeight;
-  const subtitleHeight = subtitle.offsetHeight;
-
-  const models = document.querySelectorAll(".grid__models");
-
-  models.forEach((models) => {
-    const height = (cardHeight - subtitleHeight) / models.childElementCount;
-
-    const images = Array.from(models.children);
-
-    images.forEach((image) => {
-      image.style.setProperty("--model-height", height + "px");
-    });
-  });
-}
-
-function setWelcome() {
-  const image = document.querySelector(".welcome__img");
-  const title = document.querySelector(".welcome__title");
-
-  title.style.opacity = 0.7;
-
-  setTimeout(() => {
-    image.style.opacity = 1;
-  }, 3000);
-}
-
-function removeWelcome() {
-  welcome.style.setProperty("pointer-events", "none");
-  welcome.style.opacity = 0;
-
-  window.removeEventListener("scroll", removeWelcome);
-  welcome.removeEventListener("click", removeWelcome);
-
-  setTimeout(() => {
-    welcome.remove();
-  }, 1400);
 }

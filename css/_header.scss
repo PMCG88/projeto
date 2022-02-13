@@ -5,6 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: variables.$container-medium) {
+    justify-content: center;
+  }
 
   &__wrapper {
     display: flex;
@@ -21,13 +26,13 @@
   &__nav {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   &__anchor {
     display: flex;
     align-items: center;
-    border: 1px groove rgba(220, 220, 220, 0.1);
     border-radius: 0.4rem;
     padding: 0.8 * variables.$separation-sides;
     box-shadow: variables.$box-shadow-light;
@@ -49,8 +54,8 @@
     white-space: nowrap;
     text-shadow: variables.$text-shadow-strong;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 }
 
