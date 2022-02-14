@@ -31,6 +31,10 @@
 
 .controls {
   display: flex;
+
+  @media screen and (max-width: variables.$container-small) {
+  }
+
   &__item {
     width: 2.68rem;
     height: auto;

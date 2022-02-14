@@ -18,6 +18,11 @@
     flex-wrap: wrap;
   }
 
+  &__logo {
+    width: 6rem;
+    height: auto;
+  }
+
   &__img {
     height: 100%;
     width: 100%;
@@ -35,7 +40,7 @@
     align-items: center;
     border-radius: 0.4rem;
     padding: 0.8 * variables.$separation-sides;
-    box-shadow: variables.$box-shadow-light;
+    box-shadow: variables.$box-shadow;
     margin-top: 0.5 * variables.$separation-header-small;
     margin-bottom: 0.5 * variables.$separation-header-small;
 
@@ -77,8 +82,6 @@
   &__logo {
     margin: variables.$separation-logo variables.$separation-header-large
       variables.$separation-logo variables.$separation-logo;
-    width: 6rem;
-    height: auto;
 
     @media screen and (max-width: variables.$container-large) {
       margin: variables.$separation-logo variables.$separation-header-medium
@@ -115,8 +118,6 @@
   &__logo {
     margin: variables.$separation-logo variables.$separation-logo
       variables.$separation-logo variables.$separation-header-large;
-    width: 6rem;
-    height: auto;
 
     @media screen and (max-width: variables.$container-large) {
       margin: variables.$separation-logo variables.$separation-logo
