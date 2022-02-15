@@ -21,7 +21,8 @@ const titleIntersectionObserver = new IntersectionObserver((titles) => {
   titles.forEach((title) => {
     if (title.isIntersecting) {
       title.target.style.transform = "translateX(0%)";
-      titleIntersectionObserver.unobserve(title.target);
+    } else {
+      title.target.style.transform = "translateX(-99%)";
     }
   });
 });

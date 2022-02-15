@@ -20,7 +20,7 @@
 
   &__logo {
     width: 6rem;
-    height: auto;
+    height: 6rem;
   }
 
   &__img {
@@ -65,9 +65,41 @@
 }
 
 .header {
-  border-bottom: 1px groove variables.$color-dot;
+  border-bottom: 1px groove variables.$color-transparent-element;
+  position: sticky;
+  top: -100%;
+  width: 100%;
+  z-index: 100;
+  transition: 1.5s ease-in-out;
 
-  &__anchor {
+  &--show {
+    transition: 1s;
+    background: variables.$color-bar;
+    top: 0;
+
+    & > .header__wrapper {
+      cursor: pointer;
+    }
+  }
+
+  &__button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin: variables.$separation-logo;
+
+    & span {
+      color: variables.$color-dot;
+      font-size: 2rem;
+    }
+
+    &--show {
+      display: flex;
+    }
+  }
+
+  &__anchor,
+  &__button {
     margin-right: variables.$separation-header-large;
 
     @media screen and (max-width: variables.$container-large) {
@@ -80,23 +112,12 @@
   }
 
   &__logo {
-    margin: variables.$separation-logo variables.$separation-header-large
-      variables.$separation-logo variables.$separation-logo;
-
-    @media screen and (max-width: variables.$container-large) {
-      margin: variables.$separation-logo variables.$separation-header-medium
-        variables.$separation-logo variables.$separation-logo;
-    }
-
-    @media screen and (max-width: variables.$container-medium) {
-      margin: variables.$separation-logo variables.$separation-header-small
-        variables.$separation-logo variables.$separation-logo;
-    }
+    margin: variables.$separation-logo;
   }
 }
 
 .footer {
-  border-top: 1px groove variables.$color-dot;
+  border-top: 1px groove variables.$color-transparent-element;
 
   &__anchor {
     margin-left: variables.$separation-header-large;

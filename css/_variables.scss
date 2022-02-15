@@ -30,6 +30,15 @@ $color-background: linear-gradient(
 );
 $color-text: whitesmoke;
 $color-dot: gainsboro;
+$color-transparent-theme: transparentize(
+  $color: #1d2033,
+  $amount: 0.1%,
+);
+$color-bar: #171a2b;
+$color-transparent-element: transparentize(
+  $color: gainsboro,
+  $amount: 0.9%,
+);
 
 //// Font sizes
 // h2: title

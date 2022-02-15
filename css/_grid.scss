@@ -21,62 +21,64 @@
     display: flex;
     justify-content: end;
 
-    @media screen and (min-width: variables.$container-medium) {
-      &:hover {
-        transform: scale(1.1);
-        z-index: 2;
+    @media (hover: hover) and (pointer: fine) {
+      @media screen and (min-width: variables.$container-medium) {
+        &:hover {
+          transform: scale(1.1);
+          z-index: 2;
 
-        & > .grid__link {
-          & > .grid__img {
-            box-shadow: variables.$box-shadow-dark-inset;
-            border-radius: 0.5rem 0 0 0.5rem;
+          & > .grid__link {
+            & > .grid__img {
+              box-shadow: variables.$box-shadow-dark-inset;
+              border-radius: 0.5rem 0 0 0.5rem;
+            }
+
+            & + .grid__layer {
+              transition: 1s;
+              transform: translateX(98%);
+              border-radius: 0 0.5rem 0.5rem 0;
+            }
           }
+        }
 
-          & + .grid__layer {
-            transition: 1s;
-            transform: translateX(98%);
-            border-radius: 0 0.5rem 0.5rem 0;
+        &:not(:hover) {
+          transition: transform 750ms;
+        }
+      }
+
+      @media screen and (min-width: variables.$container-large) {
+        &:nth-child(3n) {
+          justify-content: start;
+
+          &:hover {
+            & > .grid__link {
+              & > .grid__img {
+                border-radius: 0 0.5rem 0.5rem 0;
+              }
+
+              & + .grid__layer {
+                transform: translateX(-98%);
+                border-radius: 0.5rem 0 0 0.5rem;
+              }
+            }
           }
         }
       }
 
-      &:not(:hover) {
-        transition: transform 750ms;
-      }
-    }
+      @media screen and (max-width: variables.$container-large) and (min-width: variables.$container-medium) {
+        &:nth-child(2n) {
+          justify-content: start;
 
-    @media screen and (min-width: variables.$container-large) {
-      &:nth-child(3n) {
-        justify-content: start;
+          &:hover {
+            & > .grid__link {
+              & > .grid__img {
+                border-radius: 0 0.5rem 0.5rem 0;
+              }
 
-        &:hover {
-          & > .grid__link {
-            & > .grid__img {
-              border-radius: 0 0.5rem 0.5rem 0;
-            }
-
-            & + .grid__layer {
-              transform: translateX(-98%);
-              border-radius: 0.5rem 0 0 0.5rem;
-            }
-          }
-        }
-      }
-    }
-
-    @media screen and (max-width: variables.$container-large) and (min-width: variables.$container-medium) {
-      &:nth-child(2n) {
-        justify-content: start;
-
-        &:hover {
-          & > .grid__link {
-            & > .grid__img {
-              border-radius: 0 0.5rem 0.5rem 0;
-            }
-
-            & + .grid__layer {
-              transform: translateX(-98%);
-              border-radius: 0.5rem 0 0 0.5rem;
+              & + .grid__layer {
+                transform: translateX(-98%);
+                border-radius: 0.5rem 0 0 0.5rem;
+              }
             }
           }
         }
@@ -120,7 +122,7 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
-    background-color: transparentize($color: #1d2033, $amount: 0.1%);
+    background-color: variables.$color-transparent-theme;
     border-radius: 0.5rem;
     pointer-events: none;
 

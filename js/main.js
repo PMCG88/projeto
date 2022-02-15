@@ -1,57 +1,34 @@
-// const header = document.querySelector(".header");
-// const logo = document.querySelector(".header__logo");
-// const images = document.querySelectorAll(".header__img");
-// const nav = document.querySelector(".header__nav");
+const header = document.querySelector(".header");
+const nav = document.querySelector(".nav");
+const headerButton = document.querySelector(".header__button");
+const headerWrapper = document.querySelector(".header__wrapper");
 
-// const headerIntersectionObserver = new IntersectionObserver((header) => {
-//   header.forEach((header) => {
-//     if (header.isIntersecting === false) {
-//       header.target.classList.add("header--stick", "header--transparent");
-//       nav.classList.add("header__nav--hide");
-//       logo.classList.add("header__logo--small");
-//       images.forEach((image) => {
-//         image.classList.toggle("header__img--hide");
-//       });
-//     }
-//     console.log(header);
-//   });
-// });
+const headerIntersectionObserver = new IntersectionObserver((headers) => {
+  headers.forEach((header) => {
+    if (!header.isIntersecting) {
+      nav.classList.add("nav--show");
+    } else {
+      nav.classList.remove("nav--show");
+    }
+  });
+});
 
-// headerIntersectionObserver.observe(header);
+headerIntersectionObserver.observe(header);
 
-// &__header
-// &--stick {
-//   position: fixed;
-//   top: 0;
-//   width: 100%;
-//   z-index: 100;
-// }
-// &--transparent {
-//   background-color: transparentize($color: #1d2033, $amount: 0.5%);
-//   border-bottom: 0.1px solid
-//     transparentize($color: variables.$color-dot, $amount: 0.8%);
-// }
+nav.addEventListener("click", () => {
+  header.classList.add("header--show");
+  headerButton.classList.add("header__button--show");
+});
 
-// &__nav
-// &--hide {
-//   display: none;
-// }
+headerWrapper.addEventListener("click", hideHeader);
 
-// &__logo
-// &--small {
-//   width: 2rem;
-//   margin: 0.0625rem;
-// }
+window.addEventListener("scroll", () => {
+  if (window.scrollY === 0) {
+    hideHeader();
+  }
+});
 
-// &__img {
-//   &--hide {
-//     display: none;
-//   }
-// }
-// }
-
-/* <img
-  class="header__img header__img--hide"
-  src="img/svg/bmw grey small.svg"
-  alt="BMW New Logo Grey"
-/>; */
+function hideHeader() {
+  header.classList.remove("header--show");
+  headerButton.classList.remove("header__button--show");
+}
