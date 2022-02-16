@@ -9,9 +9,8 @@
   margin-bottom: 1.5 * variables.$separation-bottom;
 
   &__wrapper {
-    width: 70vw;
+    width: 100vw;
     height: var(--img-height);
-    overflow: hidden;
   }
 
   &__scroll {
@@ -26,6 +25,14 @@
 
   &__img {
     width: 100%;
+
+    &[alt="BMW Series 2 Coupe"] {
+      transform: translate(5%, 7%);
+    }
+
+    &[alt="BMW Series 4"] {
+      transform: translate(6.3%, 5.7%);
+    }
   }
 }
 
