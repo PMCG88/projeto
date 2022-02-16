@@ -21,10 +21,13 @@
   &__slide {
     position: absolute;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__img {
-    width: 100%;
+    width: 70%;
 
     &[alt="BMW Series 2 Coupe"] {
       transform: translate(5%, 7%);
