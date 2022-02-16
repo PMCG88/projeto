@@ -23,10 +23,10 @@
     <meta name="theme-color" content="#fafafa" />
   </head>
 
-  <body>
+  <body id="top">
     <h1 class="title">BMW: Model Selection</h1>
 
-    <header class="header" id="header">
+    <header class="header">
       <picture class="header__logo">
         <img
           class="header__img"
@@ -126,7 +126,7 @@
 
     <footer class="footer" id="footer">
       <nav class="footer__nav">
-        <a class="footer__anchor" href="#header">
+        <a class="footer__anchor" href="#top">
           <h4 class="footer__title">
             <span class="material-icons-outlined">forward</span>
             &nbsp;Back to top
@@ -136,13 +136,61 @@
           <h4 class="footer__title">Contact Us</h4>
         </a>
       </nav>
-      <picture class="footer__logo">
-        <img
-          class="footer__img"
-          src="img/svg/bmw new white.svg"
-          alt="BMW White Logo"
-        />
-      </picture>
+      <div class="footer__wrapper">
+        <div class="footer__social">
+          <a
+            class="footer__link"
+            href="https://www.facebook.com/BMW/"
+            target="_blank"
+          >
+            <img
+              class="footer__icon"
+              src="img/images/logos/facebook.png"
+              alt="Facebook"
+            />
+          </a>
+          <a
+            class="footer__link"
+            href="https://www.instagram.com/bmw/"
+            target="_blank"
+          >
+            <img
+              class="footer__icon"
+              src="img/images/logos/instagram.png"
+              alt="Instagram"
+            />
+          </a>
+          <a
+            class="footer__link"
+            href="https://www.youtube.com/user/BMW"
+            target="_blank"
+          >
+            <img
+              class="footer__icon"
+              src="img/images/logos/youtube.png"
+              alt="Youtube"
+            />
+          </a>
+          <a
+            class="footer__link"
+            href="https://twitter.com/bmw"
+            target="_blank"
+          >
+            <img
+              class="footer__icon"
+              src="img/images/logos/twitter.png"
+              alt="Twitter"
+            />
+          </a>
+        </div>
+        <picture class="footer__logo">
+          <img
+            class="footer__img"
+            src="img/svg/bmw new white.svg"
+            alt="BMW White Logo"
+          />
+        </picture>
+      </div>
     </footer>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
