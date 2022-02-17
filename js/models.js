@@ -37,12 +37,12 @@ function nextSlide() {
   const distance = nextSlide.style.left;
   scrollModels.style.transform = "translateX(-" + distance + ")";
 
-  const activeLabel = document.querySelector(".controls__label--active");
+  const activeLabel = document.querySelector(".labels__label--active");
   const nextLabel =
     activeLabel.nextElementSibling ||
     activeLabel.parentElement.firstElementChild;
-  activeLabel.classList.remove("controls__label--active");
-  nextLabel.classList.add("controls__label--active");
+  activeLabel.classList.remove("labels__label--active");
+  nextLabel.classList.add("labels__label--active");
 }
 
 function prevSlide() {
@@ -55,10 +55,10 @@ function prevSlide() {
   const distance = prevSlide.style.left;
   scrollModels.style.transform = "translateX(-" + distance + ")";
 
-  const activeLabel = document.querySelector(".controls__label--active");
+  const activeLabel = document.querySelector(".labels__label--active");
   const prevLabel =
     activeLabel.previousElementSibling ||
     activeLabel.parentElement.lastElementChild;
-  activeLabel.classList.remove("controls__label--active");
-  prevLabel.classList.add("controls__label--active");
+  activeLabel.classList.remove("labels__label--active");
+  prevLabel.classList.add("labels__label--active");
 }
