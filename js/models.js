@@ -1,64 +1,50 @@
-const next = document.querySelector(".controls__button--right");
-const prev = document.querySelector(".controls__button--left");
-const wrapper = document.querySelector(".models__wrapper");
+import "./slide";
+
 const scrollModels = document.querySelector(".models__scroll");
+const labels = document.querySelector(".labels");
 
-next.addEventListener("click", nextSlide);
-prev.addEventListener("click", prevSlide);
-window.addEventListener("resize", setWrapperHeight);
+const young = [
+  {
+    src: "img/images/models/BMW 1-Series.png",
+    alt: "BMW 1 Series",
+    label: "120d",
+  },
+  {
+    src: "img/images/models/BMW 2-Series Coupe.png",
+    alt: "BMW 2 Series Coupe",
+    label: "225d",
+  },
+  {
+    src: "img/images/models/BMW 4-Series.png",
+    alt: "BMW 4 Series",
+    label: "435d",
+  },
+];
 
-setTimeout(setWrapperHeight, 200);
+createScroll(young);
 
-function setWrapperHeight() {
-  const activeSlide = document.querySelector(".models__slide--active");
-  const height = activeSlide.firstElementChild.offsetHeight;
-  wrapper.style.setProperty("--img-height", height + "px");
-  positionSlides();
-}
+function createScroll(models) {
+  for (let model of models) {
+    const slide = document.createElement("picture");
+    slide.classList.add("models__slide");
 
-function positionSlides() {
-  const activeSlide = document.querySelector(".models__slide--active");
-  const slideWidth = activeSlide.offsetWidth;
-  const slides = Array.from(document.querySelectorAll(".models__slide"));
-  slides.forEach((slide, index) => {
-    slide.style.left = slideWidth * index + "px";
-  });
-  scrollModels.style.transform =
-    "translateX(-" + slideWidth * slides.indexOf(activeSlide) + "px)";
-}
+    const img = document.createElement("img");
+    img.setAttribute("src", model.src);
+    img.setAttribute("alt", model.alt);
+    img.classList.add("models__img");
 
-function nextSlide() {
-  const activeSlide = document.querySelector(".models__slide--active");
-  const nextSlide =
-    activeSlide.nextElementSibling ||
-    activeSlide.parentElement.firstElementChild;
-  activeSlide.classList.remove("models__slide--active");
-  nextSlide.classList.add("models__slide--active");
-  const distance = nextSlide.style.left;
-  scrollModels.style.transform = "translateX(-" + distance + ")";
+    slide.append(img);
+    scrollModels.append(slide);
 
-  const activeLabel = document.querySelector(".labels__label--active");
-  const nextLabel =
-    activeLabel.nextElementSibling ||
-    activeLabel.parentElement.firstElementChild;
-  activeLabel.classList.remove("labels__label--active");
-  nextLabel.classList.add("labels__label--active");
-}
+    const label = document.createElement("li");
+    label.classList.add("labels__label");
+    const text = document.createElement("p");
+    text.classList.add("labels__text");
+    text.innerText = model.label;
 
-function prevSlide() {
-  const activeSlide = document.querySelector(".models__slide--active");
-  const prevSlide =
-    activeSlide.previousElementSibling ||
-    activeSlide.parentElement.lastElementChild;
-  activeSlide.classList.remove("models__slide--active");
-  prevSlide.classList.add("models__slide--active");
-  const distance = prevSlide.style.left;
-  scrollModels.style.transform = "translateX(-" + distance + ")";
-
-  const activeLabel = document.querySelector(".labels__label--active");
-  const prevLabel =
-    activeLabel.previousElementSibling ||
-    activeLabel.parentElement.lastElementChild;
-  activeLabel.classList.remove("labels__label--active");
-  prevLabel.classList.add("labels__label--active");
+    label.append(text);
+    labels.append(label);
+  }
+  scrollModels.firstElementChild.classList.add("models__slide--active");
+  labels.firstElementChild.classList.add("labels__label--active");
 }
