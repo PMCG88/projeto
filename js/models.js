@@ -5,17 +5,17 @@ const labels = document.querySelector(".labels");
 
 const young = [
   {
-    src: "img/images/models/BMW 1-Series.png",
+    src: "img/images/models/BMW-1-Series.png",
     alt: "BMW 1 Series",
     label: "120d",
   },
   {
-    src: "img/images/models/BMW 2-Series Coupe.png",
+    src: "img/images/models/BMW-2-Series-Coupe.png",
     alt: "BMW 2 Series Coupe",
     label: "225d",
   },
   {
-    src: "img/images/models/BMW 4-Series.png",
+    src: "img/images/models/BMW-4-Series.png",
     alt: "BMW 4 Series",
     label: "435d",
   },
