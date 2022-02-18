@@ -1,21 +1,25 @@
+import * as cars from "./cars";
+
 import "./slide";
+
+import * as images from "../img/images/models/*.png";
 
 const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
 
 const young = [
   {
-    src: "img/images/models/BMW-1-Series.png",
+    src: images.default["BMW-1-Series"],
     alt: "BMW 1 Series",
     label: "120d",
   },
   {
-    src: "img/images/models/BMW-2-Series-Coupe.png",
+    src: images.default["BMW-2-Series-Coupe"],
     alt: "BMW 2 Series Coupe",
     label: "225d",
   },
   {
-    src: "img/images/models/BMW-4-Series.png",
+    src: images.default["BMW-4-Series"],
     alt: "BMW 4 Series",
     label: "435d",
   },
