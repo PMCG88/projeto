@@ -1,3 +1,12 @@
+const gridLinks = document.querySelectorAll(".grid__link");
+
+gridLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const drive = event.target.closest(".grid__img").getAttribute("alt");
+    localStorage.setItem("drive", drive);
+  });
+});
+
 window.addEventListener("resize", setModelImageHeight);
 
 setTimeout(setModelImageHeight, 200);

@@ -1,34 +1,45 @@
-import * as cars from "./cars";
-
-import "./slide";
-
-import * as images from "../img/images/models/*.png";
+import "./slides";
 
 const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
+const drive = localStorage.getItem("drive").toLowerCase();
 
-const young = [
-  {
-    src: images.default["BMW-1-Series"],
-    alt: "BMW 1 Series",
-    label: "120d",
-  },
-  {
-    src: images.default["BMW-2-Series-Coupe"],
-    alt: "BMW 2 Series Coupe",
-    label: "225d",
-  },
-  {
-    src: images.default["BMW-4-Series"],
-    alt: "BMW 4 Series",
-    label: "435d",
-  },
-];
+// import(`./cars/${drive}`).then(({ cars }) => {
+//   appendModels(cars);
+// });
 
-createScroll(young);
+getDrive();
 
-function createScroll(models) {
-  for (let model of models) {
+function getDrive() {
+  if (drive === "young") {
+    import("./cars/young").then(({ cars }) => {
+      appendModels(cars);
+    });
+  } else if (drive === "family") {
+    import("./cars/family").then(({ cars }) => {
+      appendModels(cars);
+    });
+  } else if (drive === "executive") {
+    import("./cars/executive").then(({ cars }) => {
+      appendModels(cars);
+    });
+  } else if (drive === "racing") {
+    import("./cars/racing").then(({ cars }) => {
+      appendModels(cars);
+    });
+  } else if (drive === "electric") {
+    import("./cars/electric").then(({ cars }) => {
+      appendModels(cars);
+    });
+  } else if (drive === "allroad") {
+    import("./cars/allroad").then(({ cars }) => {
+      appendModels(cars);
+    });
+  }
+}
+
+function appendModels(models) {
+  models.forEach((model) => {
     const slide = document.createElement("picture");
     slide.classList.add("models__slide");
 
@@ -48,7 +59,9 @@ function createScroll(models) {
 
     label.append(text);
     labels.append(label);
+  });
+  if (scrollModels.firstElementChild && labels.firstElementChild) {
+    scrollModels.firstElementChild.classList.add("models__slide--active");
+    labels.firstElementChild.classList.add("labels__label--active");
   }
-  scrollModels.firstElementChild.classList.add("models__slide--active");
-  labels.firstElementChild.classList.add("labels__label--active");
 }

@@ -7,7 +7,7 @@
   "author": "",
   "scripts": {
     "build": "parcel build index.html",
-    "dev": "parcel models.html --open",
+    "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,7 @@
     "sass": "^1.45.2"
   },
   "dependencies": {
+    "cars": "^1.1.6",
     "news": "^0.2.1"
   }
 }
