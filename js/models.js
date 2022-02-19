@@ -4,7 +4,7 @@ const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
 const drive = localStorage.getItem("drive").toLowerCase();
 
-// import(`./cars/${drive}`).then(({ cars }) => {
+// import(`./drive/${drive}`).then(({ cars }) => {
 //   appendModels(cars);
 // });
 
@@ -12,27 +12,27 @@ getDrive();
 
 function getDrive() {
   if (drive === "young") {
-    import("./cars/young").then(({ cars }) => {
+    import("./drive/young").then(({ cars }) => {
       appendModels(cars);
     });
   } else if (drive === "family") {
-    import("./cars/family").then(({ cars }) => {
+    import("./drive/family").then(({ cars }) => {
       appendModels(cars);
     });
   } else if (drive === "executive") {
-    import("./cars/executive").then(({ cars }) => {
+    import("./drive/executive").then(({ cars }) => {
       appendModels(cars);
     });
   } else if (drive === "racing") {
-    import("./cars/racing").then(({ cars }) => {
+    import("./drive/racing").then(({ cars }) => {
       appendModels(cars);
     });
   } else if (drive === "electric") {
-    import("./cars/electric").then(({ cars }) => {
+    import("./drive/electric").then(({ cars }) => {
       appendModels(cars);
     });
   } else if (drive === "allroad") {
-    import("./cars/allroad").then(({ cars }) => {
+    import("./drive/allroad").then(({ cars }) => {
       appendModels(cars);
     });
   }
