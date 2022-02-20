@@ -4,9 +4,11 @@ const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
 const drive = localStorage.getItem("drive").toLowerCase();
 
-// import(`./drive/${drive}`).then(({ cars }) => {
-//   appendModels(cars);
-// });
+/* 
+import(`./drive/${drive}`).then(({ cars }) => {
+  appendModels(cars);
+});
+*/
 
 getDrive();
 

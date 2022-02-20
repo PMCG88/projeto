@@ -24,6 +24,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &--active {
+      & > .models__img {
+        cursor: pointer;
+      }
+    }
   }
 
   &__img {
@@ -39,6 +45,62 @@
 
     &[alt="BMW 4 Series"] {
       transform: translate(5.5%, 5.2%);
+    }
+
+    &[alt="BMW 3 Series Touring"] {
+      transform: translate(7%);
+    }
+
+    &[alt="BMW 5 Series Touring"] {
+      transform: translate(6%);
+    }
+
+    &[alt="BMW 3 Series Sedan"] {
+      transform: translate(2.5%);
+    }
+
+    &[alt="BMW 5 Series Sedan"] {
+      transform: translate(3%, 1%);
+    }
+
+    &[alt="BMW 7 Series"] {
+      transform: translate(1.5%, 1%);
+    }
+
+    &[alt="BMW M3"] {
+      transform: translate(6%);
+    }
+
+    &[alt="BMW M4"] {
+      transform: translate(8%);
+    }
+
+    &[alt="BMW M5"] {
+      transform: translate(7%, -0.5%);
+    }
+
+    &[alt="BMW i3"] {
+      transform: translate(8.5%);
+    }
+
+    &[alt="BMW i4"] {
+      transform: translate(8.5%);
+    }
+
+    &[alt="BMW iX"] {
+      transform: translate(11%, -1.5%);
+    }
+
+    &[alt="BMW X3"] {
+      transform: translate(7%);
+    }
+
+    &[alt="BMW X5"] {
+      transform: translate(5.5%, 0.5%);
+    }
+
+    &[alt="BMW X6"] {
+      transform: translate(5.5%);
     }
   }
 
@@ -150,10 +212,13 @@
     position: absolute;
     transform: translateY(55%);
     opacity: 0;
+    z-index: 1;
 
     &--active {
       opacity: 1;
       transition: 1s;
+      z-index: 2;
+      cursor: pointer;
     }
   }
 
