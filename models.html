@@ -7,16 +7,14 @@
       name="description"
       content="Dive into these new worlds with us, get inspired, and experience something new, unusual and helpful every day. At BMW.com - our digital interpretation of the sheer pleasure of driving."
     />
+    <meta name="theme-color" content="#fafafa" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
 
     <link rel="stylesheet" href="css/main.scss" />
-
-    <meta name="theme-color" content="#fafafa" />
   </head>
 
   <body id="top">
@@ -32,7 +30,7 @@
           />
         </picture>
         <button class="header__button">
-          <span class="material-icons-round">expand_less</span>
+          <span class="material-icons-round">unfold_less</span>
         </button>
       </div>
       <nav class="header__nav">
@@ -51,9 +49,11 @@
         />
       </picture>
       <button class="nav__button">
-        <span class="material-icons-round">expand_more</span>
+        <span class="material-icons-round">unfold_more</span>
       </button>
     </nav>
+
+    <h2 class="models__title">Choose your model by putting it in view...</h2>
 
     <div class="container container__models">
       <section class="models">
@@ -96,21 +96,64 @@
           </ul>
         </nav>
       </section>
+    </div>
 
+    <h2 class="options__title">...customize it...</h2>
+
+    <div class="container container__options">
       <menu class="options">
         <div class="options__option">
-          <h2 class="options__header">Transmissão:&nbsp;</h2>
-          <p class="options__choice">Manual</p>
-          <p class="options__choice">Automática</p>
+          <h3 class="options__header">
+            Transmission:
+            <span class="options__span">&lt;Choose an option!&gt;</span>
+            <span class="material-icons-round">unfold_more</span>
+          </h3>
+          <div class="options__choice">
+            <input type="checkbox" id="manual" class="options__input" />
+            <label for="manual" class="options__label">Manual</label>
+          </div>
+          <div class="options__choice">
+            <input type="checkbox" id="auto" class="options__input" />
+            <label for="auto" class="options__label">Automatic</label>
+          </div>
+        </div>
+        <div class="options__option">
+          <h3 class="options__header">
+            Braking System:
+            <span class="options__span">&lt;Regular&gt;</span>
+            <span class="material-icons-round">unfold_more</span>
+          </h3>
+          <div class="options__choice">
+            <input type="checkbox" id="braking" class="options__input" />
+            <label for="braking" class="options__label">Ceramic brakes</label>
+          </div>
         </div>
       </menu>
+    </div>
+
+    <h2 class="generate__title">
+      ...and click the baloon to generate your proposal!
+    </h2>
+
+    <div class="container container__generate">
+      <section class="generate">
+        <button class="generate__button">
+          <a class="generate__link" href="proposal.html">
+            <img
+              class="generate__img"
+              src="/img/images/logos/my-bmw-baloon.png"
+              alt="My BMW"
+            />
+          </a>
+        </button>
+      </section>
     </div>
 
     <footer class="footer" id="footer">
       <nav class="footer__nav">
         <a class="footer__anchor" href="#top">
           <h4 class="footer__title">
-            <span class="material-icons-outlined">forward</span>
+            <span class="material-icons-outlined">expand_less</span>
             &nbsp;Back to top
           </h4>
         </a>

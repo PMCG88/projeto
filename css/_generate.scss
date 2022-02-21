@@ -1,0 +1,21 @@
+@use "variables";
+
+.generate {
+  margin-bottom: variables.$separation-bottom;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__button {
+  }
+
+  &__link {
+  }
+
+  &__img {
+    width: 15rem;
+  }
+
+  &__title {
+  }
+}

@@ -29,7 +29,12 @@ $color-background: linear-gradient(
   #000016
 );
 $color-text: whitesmoke;
+$color-text-dark: transparentize(
+  $color: gainsboro,
+  $amount: 0.3%,
+);
 $color-dot: gainsboro;
+$color-theme: #1d2033;
 $color-transparent-theme: transparentize(
   $color: #1d2033,
   $amount: 0.1%,
@@ -58,6 +63,9 @@ $font-size-h4-small: 1rem;
 // text
 $font-size-text-large: 1.125rem;
 $font-size-text-medium: 1rem;
+
+//// Borders
+$border: 1px groove $color-transparent-element;
 
 //// Shadows
 // Boxes

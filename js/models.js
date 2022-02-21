@@ -3,14 +3,33 @@ import "./slides";
 const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
 const drive = localStorage.getItem("drive").toLowerCase();
+const titles = document.querySelectorAll("body > h2");
+
+const titleIntersectionObserver = new IntersectionObserver((titles) => {
+  titles.forEach((title) => {
+    if (title.isIntersecting) {
+      title.target.style.transform = "translateX(0%)";
+    } else {
+      title.target.style.transform = "translateX(-99%)";
+    }
+  });
+});
+
+setTitleIntersectionObserver();
+
+function setTitleIntersectionObserver() {
+  titles.forEach((title) => {
+    titleIntersectionObserver.observe(title);
+  });
+}
+
+getDrive();
 
 /* 
 import(`./drive/${drive}`).then(({ cars }) => {
   appendModels(cars);
 });
 */
-
-getDrive();
 
 function getDrive() {
   if (drive === "young") {

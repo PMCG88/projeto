@@ -1,0 +1,79 @@
+@use "variables";
+
+.options {
+  margin: 0 0 0.5 * variables.$separation-bottom;
+  padding: 0;
+
+  @media screen and (max-width: variables.$container-medium) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 0.25 * variables.$separation-bottom;
+  }
+
+  & * {
+    line-height: 80%;
+  }
+
+  &__option {
+    border: 1px groove variables.$color-transparent-element;
+    border-radius: 1rem;
+    margin-bottom: variables.$separation-sides;
+    width: fit-content;
+  }
+
+  &__header {
+    font-style: normal;
+    border-bottom: variables.$border;
+    padding: variables.$separation-sides;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: variables.$container-medium) {
+      flex-direction: column;
+    }
+
+    & > .material-icons-round {
+      color: gainsboro;
+    }
+
+    & span {
+      margin-left: variables.$separation-sides;
+      padding: variables.$separation-sides;
+      text-shadow: none;
+
+      &:last-child {
+        padding: 0;
+      }
+
+      @media screen and (max-width: variables.$container-medium) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__header,
+  &__choice {
+    margin: 0;
+  }
+
+  &__span {
+    color: variables.$color-text-dark;
+  }
+
+  &__choice {
+  }
+
+  &__input {
+  }
+
+  &__label {
+  }
+
+  &__title {
+    @media screen and (max-width: variables.$container-medium) {
+      margin-top: 0.5 * variables.$separation-bottom;
+    }
+  }
+}

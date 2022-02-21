@@ -5,7 +5,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: variables.$separation-bottom;
+
+  &__title {
+    margin-bottom: 0;
+  }
 
   &__wrapper {
     width: 100vw;
