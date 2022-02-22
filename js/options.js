@@ -1,15 +1,13 @@
-const options = document.querySelectorAll(".options__header");
-const contents = document.querySelectorAll(".options__content");
+const options = document.querySelector(".options");
 
-options.forEach((option) => {
-  option.addEventListener("click", () => {
-    option.parentElement.classList.toggle("options__option--open");
-  });
+options.addEventListener("click", (event) => {
+  const header = event.target.closest(".options__header");
+  header.parentElement.classList.toggle(".options__option--open");
 });
 
+const contents = document.querySelectorAll(".options__content");
+
 contents.forEach((content) => {
-  content.parentElement.style.setProperty(
-    "--option-height",
-    content.offsetHeight
-  );
+  const height = content.firstElementChild.offsetHeight;
+  content.style.setProperty("--option-height", height + 0.1 + "px");
 });
