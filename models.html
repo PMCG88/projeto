@@ -34,6 +34,15 @@
         </button>
       </div>
       <nav class="header__nav">
+        <a class="header__anchor" href="#choose">
+          <h4 class="header__title">Choose your model</h4>
+        </a>
+        <a class="header__anchor" href="#customize">
+          <h4 class="header__title">Customize your model</h4>
+        </a>
+        <a class="header__anchor" href="#generate">
+          <h4 class="header__title">Generate your proposal</h4>
+        </a>
         <a class="header__anchor" href="#footer">
           <h4 class="header__title">Social Media</h4>
         </a>
@@ -53,7 +62,9 @@
       </button>
     </nav>
 
-    <h2 class="models__title">Choose your model by putting it in view...</h2>
+    <h2 class="models__title" id="choose">
+      Choose your model by putting it in view...
+    </h2>
 
     <div class="container container__models">
       <section class="models">
@@ -98,51 +109,75 @@
       </section>
     </div>
 
-    <h2 class="options__title">...customize it...</h2>
+    <h2 class="options__title" id="customize">...customize it...</h2>
 
     <div class="container container__options">
       <menu class="options">
         <div class="options__option">
-          <h3 class="options__header">
-            Transmission:
+          <header class="options__header">
+            <h3 class="options__subtitle">Transmission:</h3>
             <span class="options__span">&lt;Choose an option!&gt;</span>
             <span class="material-icons-round">unfold_more</span>
-          </h3>
-          <div class="options__choice">
-            <input type="checkbox" id="manual" class="options__input" />
-            <label for="manual" class="options__label">Manual</label>
-          </div>
-          <div class="options__choice">
-            <input type="checkbox" id="auto" class="options__input" />
-            <label for="auto" class="options__label">Automatic</label>
+          </header>
+          <div class="options__choices">
+            <div class="options__content">
+              <div class="options__choice">
+                <label for="manual" class="options__label">
+                  Manual
+                  <input
+                    type="radio"
+                    id="manual"
+                    name="transmission"
+                    class="options__input"
+                  />
+                </label>
+              </div>
+              <div class="options__choice">
+                <label for="auto" class="options__label">
+                  Automatic
+                  <input
+                    type="radio"
+                    id="auto"
+                    name="transmission"
+                    class="options__input"
+                  />
+                </label>
+              </div>
+            </div>
           </div>
         </div>
         <div class="options__option">
-          <h3 class="options__header">
-            Braking System:
-            <span class="options__span">&lt;Regular&gt;</span>
+          <header class="options__header">
+            <h3 class="options__subtitle">Braking System:</h3>
+            <span class="options__span">Regular</span>
             <span class="material-icons-round">unfold_more</span>
-          </h3>
-          <div class="options__choice">
-            <input type="checkbox" id="braking" class="options__input" />
-            <label for="braking" class="options__label">Ceramic brakes</label>
+          </header>
+          <div class="options__choices">
+            <div class="options__content">
+              <div class="options__choice">
+                <label for="braking" class="options__label">
+                  Ceramic brakes
+                  <input type="checkbox" id="braking" class="options__input" />
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </menu>
     </div>
 
-    <h2 class="generate__title">
+    <h2 class="generate__title" id="generate">
       ...and click the baloon to generate your proposal!
     </h2>
 
     <div class="container container__generate">
       <section class="generate">
         <button class="generate__button">
-          <a class="generate__link" href="proposal.html">
+          <a class="generate__link" href="proposal.html" target="_blank">
             <img
               class="generate__img"
               src="/img/images/logos/my-bmw-baloon.png"
-              alt="My BMW"
+              alt="My BMW Baloon"
             />
           </a>
         </button>

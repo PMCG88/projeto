@@ -65,7 +65,7 @@
 }
 
 .header {
-  border-bottom: 1px groove variables.$color-transparent-element;
+  border-bottom: variables.$border;
   position: sticky;
   top: -100%;
   width: 100%;
@@ -117,7 +117,7 @@
 }
 
 .footer {
-  border-top: 1px groove variables.$color-transparent-element;
+  border-top: variables.$border;
 
   &__anchor {
     margin-left: variables.$separation-header-large;

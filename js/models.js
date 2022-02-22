@@ -1,4 +1,5 @@
 import "./slides";
+import "./options";
 
 const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
@@ -23,13 +24,13 @@ function setTitleIntersectionObserver() {
   });
 }
 
-getDrive();
-
-/* 
-import(`./drive/${drive}`).then(({ cars }) => {
+/*
+import(`./drive/${drive}.js`).then(({ cars }) => {
   appendModels(cars);
 });
 */
+
+getDrive();
 
 function getDrive() {
   if (drive === "young") {
