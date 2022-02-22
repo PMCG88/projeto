@@ -23,10 +23,15 @@
     overflow: hidden;
 
     &--open {
-      & .options__content {
+      & > .options__content {
         max-height: var(--option-height);
       }
     }
+  }
+
+  &__content {
+    max-height: 0.01px;
+    transition: 600ms;
   }
 
   &__header {
@@ -78,11 +83,6 @@
   &__choices {
     padding: variables.$separation-sides;
     border-top: variables.$border;
-  }
-
-  &__content {
-    max-height: 0.1px;
-    transition: 2s;
   }
 
   &__choice {
