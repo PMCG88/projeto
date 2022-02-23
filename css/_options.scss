@@ -31,7 +31,7 @@
 
   &__content {
     max-height: 0.01px;
-    transition: 600ms;
+    transition: var(--timing-function);
   }
 
   &__header {

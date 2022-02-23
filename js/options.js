@@ -14,5 +14,7 @@ function setHeight() {
   contents.forEach((content) => {
     const height = content.firstElementChild.offsetHeight;
     content.style.setProperty("--option-height", height + 0.01 + "px");
+    const time = height * (500 / 97);
+    content.style.setProperty("--timing-function", time + "ms");
   });
 }
