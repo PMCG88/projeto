@@ -111,35 +111,51 @@
 
     <h2 class="options__title" id="customize">...customize it...</h2>
 
-    <div class="container container__options">
-      <menu class="options">
+    <form action="proposal.html" method="GET" class="options">
+      <div class="options__buttons">
+        <button class="options__button" type="reset">
+          <p class="options__button-text">Clear all choices</p>
+          <span class="material-icons-round">delete</span>
+        </button>
+        <button class="options__button" id="closeAll">
+          <p class="options__button-text">Close all options</p>
+          <span class="material-icons-round">unfold_less</span>
+        </button>
+      </div>
+      <menu class="container container__options">
         <div class="options__option">
           <header class="options__header">
-            <h3 class="options__subtitle">Transmission:</h3>
-            <span class="options__span">&lt;Choose an option!&gt;</span>
+            <div class="options__wrapper">
+              <h3 class="options__subtitle">Transmission:</h3>
+              <span class="options__span">&lt;Choose an option!&gt;</span>
+            </div>
             <span class="material-icons-round">unfold_more</span>
           </header>
           <div class="options__content">
             <div class="options__choices">
               <div class="options__choice">
-                <label for="manual" class="options__label">
+                <label for="transmanual" class="options__label">
                   Manual
                   <input
                     type="radio"
-                    id="manual"
+                    id="transmanual"
                     name="transmission"
                     class="options__input"
+                    value="Manual"
+                    required
                   />
                 </label>
               </div>
               <div class="options__choice">
-                <label for="auto" class="options__label">
+                <label for="transauto" class="options__label">
                   Automatic
                   <input
                     type="radio"
-                    id="auto"
+                    id="transauto"
                     name="transmission"
                     class="options__input"
+                    value="Automatic"
+                    required
                   />
                 </label>
               </div>
@@ -148,41 +164,206 @@
         </div>
         <div class="options__option">
           <header class="options__header">
-            <h3 class="options__subtitle">Braking System:</h3>
-            <span class="options__span">Regular</span>
+            <div class="options__wrapper">
+              <h3 class="options__subtitle">Braking System:</h3>
+              <span class="options__span">&lt;Choose an option!&gt;</span>
+            </div>
             <span class="material-icons-round">unfold_more</span>
           </header>
           <div class="options__content">
             <div class="options__choices">
               <div class="options__choice">
-                <label for="braking" class="options__label">
-                  Ceramic brakes
-                  <input type="checkbox" id="braking" class="options__input" />
+                <label for="brakeregular" class="options__label">
+                  Regular
+                  <input
+                    type="radio"
+                    id="brakeregular"
+                    name="braking"
+                    class="options__input"
+                    value="Regular"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="options__choice">
+                <label for="brakeceramic" class="options__label">
+                  Sport (Ceramic brakes)
+                  <input
+                    type="radio"
+                    id="brakeceramic"
+                    name="braking"
+                    class="options__input"
+                    value="Sport (Ceramic brakes)"
+                    required
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="options__option">
+          <header class="options__header">
+            <div class="options__wrapper">
+              <h3 class="options__subtitle">Warranty Extension:</h3>
+              <span class="options__span">&lt;Choose an option!&gt;</span>
+            </div>
+            <span class="material-icons-round">unfold_more</span>
+          </header>
+          <div class="options__content">
+            <div class="options__choices">
+              <div class="options__choice">
+                <label for="none" class="options__label">
+                  None
+                  <input
+                    type="radio"
+                    id="none"
+                    name="warranty"
+                    class="options__input"
+                    value="None"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="options__choice">
+                <label for="4years" class="options__label">
+                  4 years or 200.000 km
+                  <input
+                    type="radio"
+                    id="4years"
+                    name="warranty"
+                    class="options__input"
+                    value="4 years or 200.000 km"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="options__choice">
+                <label for="5years" class="options__label">
+                  5 years or 200.000 km
+                  <input
+                    type="radio"
+                    id="5years"
+                    name="warranty"
+                    class="options__input"
+                    value="5 years or 200.000 km"
+                    required
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="options__option">
+          <header class="options__header">
+            <div class="options__wrapper">
+              <h3 class="options__subtitle">Steering Wheel:</h3>
+              <span class="options__span">&lt;Choose an option!&gt;</span>
+            </div>
+            <span class="material-icons-round">unfold_more</span>
+          </header>
+          <div class="options__content">
+            <div class="options__choices">
+              <div class="options__choice">
+                <label for="wheelleather" class="options__label">
+                  Synthetic leather
+                  <input
+                    type="radio"
+                    id="wheelleather"
+                    name="steeringwheel"
+                    class="options__input"
+                    value="Synthetic leather"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="options__choice">
+                <label for="wheelcarbon" class="options__label">
+                  Carbon fiber
+                  <input
+                    type="radio"
+                    id="wheelcarbon"
+                    name="steeringwheel"
+                    class="options__input"
+                    value="Carbon fiber"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="options__choice">
+                <label for="wheelheated" class="options__label">
+                  Heated
+                  <input
+                    type="checkbox"
+                    id="wheelheated"
+                    name="heatedwheel"
+                    class="options__input"
+                    value="Heated"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="options__option">
+          <header class="options__header">
+            <div class="options__wrapper">
+              <h3 class="options__subtitle">Roof Lining:</h3>
+              <span class="options__span">&lt;Choose an option!&gt;</span>
+            </div>
+            <span class="material-icons-round">unfold_more</span>
+          </header>
+          <div class="options__content">
+            <div class="options__choices">
+              <div class="options__choice">
+                <label for="rooflight" class="options__label">
+                  Light grey
+                  <input
+                    type="radio"
+                    id="rooflight"
+                    name="rooflining"
+                    class="options__input"
+                    value="Light grey"
+                    required
+                  />
+                </label>
+              </div>
+              <div class="options__choice">
+                <label for="roofblack" class="options__label">
+                  Black anthracite
+                  <input
+                    type="radio"
+                    id="roofblack"
+                    name="rooflining"
+                    class="options__input"
+                    value="Black anthracite"
+                    required
+                  />
                 </label>
               </div>
             </div>
           </div>
         </div>
       </menu>
-    </div>
-
-    <h2 class="generate__title" id="generate">
-      ...and click the baloon to generate your proposal!
-    </h2>
-
-    <div class="container container__generate">
-      <section class="generate">
-        <button class="generate__button">
-          <a class="generate__link" href="proposal.html" target="_blank">
+      <h2 class="generate__title" id="generate">
+        ...and click the baloon to generate your proposal!
+      </h2>
+      <div class="container container__generate">
+        <section class="generate">
+          <div class="generate__error">
+            <p class="generate__error-text">
+              You have unselected options that are required to continue.
+            </p>
+          </div>
+          <button class="generate__button" type="submit">
             <img
               class="generate__img"
               src="/img/images/logos/my-bmw-baloon.png"
               alt="My BMW Baloon"
             />
-          </a>
-        </button>
-      </section>
-    </div>
+          </button>
+        </section>
+      </div>
+    </form>
 
     <footer class="footer" id="footer">
       <nav class="footer__nav">

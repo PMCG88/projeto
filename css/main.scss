@@ -116,8 +116,8 @@ textarea {
 
 html {
   box-sizing: border-box;
-  -webkit-user-drag: none;
   user-select: none;
+  -webkit-user-drag: none;
   scroll-behavior: smooth;
 }
 
@@ -136,7 +136,8 @@ body {
   font-family: "Fira Sans Extra Condensed", sans-serif;
   color: variables.$color-text;
 
-  & > h2 {
+  & > h2,
+  .generate__title {
     @media screen and (min-width: variables.$container-medium) {
       transform: translateX(-99%);
       transition: transform 2s;
@@ -253,6 +254,11 @@ h4 {
   @media screen and (max-width: variables.$container-medium) {
     max-width: variables.$container-small;
   }
+}
+
+.error {
+  border: variables.$border-error;
+  border-radius: 1rem;
 }
 
 /* ==========================================================================

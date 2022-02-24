@@ -3,13 +3,12 @@
 .generate {
   margin-bottom: variables.$separation-bottom;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   &__button {
-  }
-
-  &__link {
+    padding: 1.5 * variables.$separation-sides;
   }
 
   &__img {
@@ -17,5 +16,19 @@
   }
 
   &__title {
+    text-align: left;
+  }
+
+  &__error {
+    max-height: 0;
+    overflow: hidden;
+
+    &--active {
+      max-height: fit-content;
+    }
+
+    &-text {
+      padding: variables.$separation-sides;
+    }
   }
 }

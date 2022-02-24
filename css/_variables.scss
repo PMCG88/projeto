@@ -35,6 +35,7 @@ $color-text-dark: transparentize(
 );
 $color-dot: gainsboro;
 $color-theme: #1d2033;
+$color-theme-dark: #0b0b1d;
 $color-transparent-theme: transparentize(
   $color: #1d2033,
   $amount: 0.1%,
@@ -44,6 +45,7 @@ $color-transparent-element: transparentize(
   $color: gainsboro,
   $amount: 0.9%,
 );
+
 //Filters
 $filter: invert(100%) sepia(0%) saturate(2916%) hue-rotate(114deg)
   brightness(119%) contrast(73%);
@@ -63,9 +65,11 @@ $font-size-h4-small: 1rem;
 // text
 $font-size-text-large: 1.125rem;
 $font-size-text-medium: 1rem;
+$font-size-text-small: 0.9rem;
 
 //// Borders
 $border: 1px groove $color-transparent-element;
+$border-error: 2px groove rgba(255, 0, 0, 0.35);
 
 //// Shadows
 // Boxes

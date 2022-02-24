@@ -4,7 +4,7 @@ import "./options";
 const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
 const drive = localStorage.getItem("drive").toLowerCase();
-const titles = document.querySelectorAll("body > h2");
+const titles = document.querySelectorAll("body > h2, .generate__title");
 
 const titleIntersectionObserver = new IntersectionObserver((titles) => {
   titles.forEach((title) => {
@@ -82,7 +82,12 @@ function appendModels(models) {
     label.append(text);
     labels.append(label);
   });
-  if (scrollModels.firstElementChild && labels.firstElementChild) {
+  if (
+    !scrollModels.firstElementChild.classList.contains(
+      "models__slide--active"
+    ) &&
+    !labels.firstElementChild.classList.contains("labels__label--active")
+  ) {
     scrollModels.firstElementChild.classList.add("models__slide--active");
     labels.firstElementChild.classList.add("labels__label--active");
   }

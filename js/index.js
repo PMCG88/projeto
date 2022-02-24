@@ -21,6 +21,8 @@ setWelcome();
 setTimeout(removeWelcome, 13000);
 
 function setTitleIntersectionObserver() {
+  const titles = document.querySelectorAll("body > h2");
+
   titles.forEach((title) => {
     titleIntersectionObserver.observe(title);
   });
