@@ -116,9 +116,8 @@ textarea {
 
 html {
   box-sizing: border-box;
-  user-select: none;
-  -webkit-user-drag: none;
-  scroll-behavior: smooth;
+  user-select: none; // cancels text selection
+  scroll-behavior: smooth; // page scroll to anchors is smooth
 }
 
 *,
@@ -128,7 +127,7 @@ html {
 }
 
 body {
-  overscroll-behavior: none;
+  overscroll-behavior: none; // scrolling with touchpad doesn't create white space
   min-width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
@@ -140,6 +139,7 @@ body {
   .generate__title {
     @media screen and (min-width: variables.$container-medium) {
       transform: translateX(-99%);
+      // so that the titles become barely visible to the intersection observer but not visible to the user
       transition: transform 2s;
     }
   }
@@ -152,12 +152,19 @@ button,
 ul,
 li {
   display: block;
+  // most inline elements to block for more intuitive design
+}
+
+a,
+img {
+  -webkit-user-drag: none; // cancels image and link drag effect
 }
 
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  // remove all list styles
 }
 
 button {
@@ -167,6 +174,7 @@ button {
   color: inherit;
   margin: 0;
   padding: 0;
+  // remove all button styles
 }
 
 a {
@@ -175,10 +183,12 @@ a {
   font-size: inherit;
   padding: 0;
   margin: 0;
+  // remove all link styles
 }
 
 img {
   max-width: 100%;
+  // images never overflow the parents
 }
 
 h2,
@@ -235,10 +245,12 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+  // material icons always centered within themselves and inherit the styles from the parent text
 }
 
 .title {
   display: none;
+  // mandatory h1 page title doesn't appear to user
 }
 
 .container {

@@ -151,6 +151,8 @@
     justify-content: center;
     position: sticky;
     top: 0;
+    z-index: 1;
+    // so that the buttons appear over elements in same hierarchy level
 
     @media screen and (max-width: variables.$container-large) {
       align-items: center;
@@ -164,8 +166,13 @@
     border: variables.$border;
     border-radius: 1rem;
     padding: 0.8 * variables.$separation-sides;
-    margin: 0.25 * variables.$separation-sides;
-    background-color: variables.$color-bar;
+    margin: 0.15 * variables.$separation-sides 0.25 *
+      variables.$separation-sides 0.15 * variables.$separation-sides;
+    background: variables.$color-bar;
+
+    &:last-child {
+      margin-bottom: variables.$separation-sides;
+    }
 
     &-text {
       margin: 0;

@@ -10,14 +10,11 @@
   width: fit-content;
   z-index: 99;
   transition: 1.5s ease-in-out;
+  margin-left: 0.15 * variables.$separation-sides;
 
   &--show {
     transition: 1s;
-    top: 0;
-  }
-
-  & > * {
-    margin: 0.0625rem;
+    top: 0.15 * variables.$separation-sides;
   }
 
   &__logo {
@@ -32,8 +29,6 @@
   }
 
   &__button {
-    margin-right: 0.2rem;
-
     & span {
       color: variables.$color-dot;
       font-size: 1.5rem;

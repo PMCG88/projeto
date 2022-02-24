@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: variables.$container-medium) {
+    margin-bottom: 0.3 * variables.$separation-bottom;
+  }
+
   &__button {
     padding: 1.5 * variables.$separation-sides;
   }
@@ -17,6 +21,12 @@
 
   &__title {
     text-align: left;
+    margin-top: variables.$separation-bottom;
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin-top: 0.4 * variables.$separation-bottom;
+      text-align: center;
+    }
   }
 
   &__error {

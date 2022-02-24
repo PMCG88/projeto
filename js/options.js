@@ -25,17 +25,18 @@ closeAllButton.addEventListener("click", (event) => {
   everyOption.forEach((option) => {
     if (option.classList.contains("options__option--open")) {
       option.classList.remove("options__option--open");
+      option.firstElementChild.lastElementChild.innerText = "unfold_more";
     }
   });
 });
 
-window.addEventListener("resize", setHeight);
+window.addEventListener("resize", setOptionHeight);
 window.addEventListener("resize", alignSubtitles);
 
-setHeight();
+setOptionHeight();
 alignSubtitles();
 
-function setHeight() {
+function setOptionHeight() {
   contents.forEach((content) => {
     const height = content.firstElementChild.offsetHeight;
     content.style.setProperty("--option-height", height + 0.01 + "px");

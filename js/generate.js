@@ -33,12 +33,6 @@ function removeGenerateError() {
   }
 }
 
-function addError(input) {
-  input.closest(".options__option").classList.add("error");
-  generate.classList.add("error");
-  generateError.classList.add("generate__error--active");
-}
-
 function onSubmit(event) {
   event.preventDefault();
   if (options.checkValidity() === false) {
@@ -50,4 +44,10 @@ function onSubmit(event) {
   } else {
     options.submit();
   }
+}
+
+function addError(input) {
+  input.closest(".options__option").classList.add("error");
+  generate.classList.add("error");
+  generateError.classList.add("generate__error--active");
 }
