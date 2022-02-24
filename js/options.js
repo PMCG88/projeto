@@ -34,7 +34,7 @@ window.addEventListener("resize", setOptionHeight);
 window.addEventListener("resize", alignSubtitles);
 
 setOptionHeight();
-alignSubtitles();
+setTimeout(alignSubtitles, 200);
 
 function setOptionHeight() {
   contents.forEach((content) => {
