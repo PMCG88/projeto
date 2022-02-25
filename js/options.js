@@ -119,14 +119,26 @@ function addInputValue(input) {
     .closest(".options__option")
     .querySelector(".options__span");
   span.classList.add("options__span--selected");
-  if (span.children.length === 1) {
-    if (span.firstElementChild.innerText.includes(virgula)) {
-      span.innerHTML = `${input.value}<span class="options__span-checkbox">${span.firstElementChild.innerText}</span>`;
-    } else {
-      span.innerHTML = `${input.value}<span class="options__span-checkbox">, ${span.firstElementChild.innerText}</span>`;
-    }
-  } else if (span.children.length === 0) {
+  if (span.children.length === 0) {
     span.innerText = input.value;
+  } else if (span.children.length > 0) {
+    const checkSpans = Array.from(span.children);
+    let checkSpansText = [];
+    checkSpans.forEach((checkSpan) => {
+      checkSpansText.push(
+        `<span class="options__span-checkbox">${checkSpan.innerText}</span>`
+      );
+    });
+    if (span.firstElementChild.innerText.includes(virgula)) {
+      span.innerHTML = `${input.value}`.concat(checkSpansText.join(""));
+    } else {
+      checkSpansText.splice(
+        0,
+        1,
+        `<span class="options__span-checkbox">, ${span.firstElementChild.innerText}</span>`
+      );
+      span.innerHTML = `${input.value}`.concat(checkSpansText.join(""));
+    }
   }
 }
 
