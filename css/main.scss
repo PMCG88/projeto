@@ -136,7 +136,8 @@ body {
   color: variables.$color-text;
 
   & > h2,
-  .generate__title {
+  .generate__title,
+  .grid__title {
     @media screen and (min-width: variables.$container-medium) {
       transform: translateX(-99%);
       // so that the titles become barely visible to the intersection observer but not visible to the user

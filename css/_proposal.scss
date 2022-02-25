@@ -4,7 +4,6 @@
   & * {
     color: black;
     text-shadow: none;
-    text-align: left;
     padding: 0;
     margin: 0;
     line-height: 80%;
@@ -26,9 +25,9 @@
     background-image: url(/img/images/backgrounds/paper.png);
     width: 100%;
     height: fit-content;
-    z-index: -1;
     position: relative;
     top: 3.125rem;
+    z-index: -1;
     border-radius: 0.1rem;
     box-shadow: variables.$box-shadow-dark;
   }
@@ -46,9 +45,17 @@
     padding: variables.$separation-logo;
     align-self: flex-start;
 
+    @media screen and (max-width: variables.$container-medium) {
+      width: 6rem;
+    }
+
     &:last-child {
       align-self: flex-end;
       width: 3rem;
+
+      @media screen and (max-width: variables.$container-medium) {
+        width: 2.5rem;
+      }
     }
   }
 
@@ -57,26 +64,54 @@
     width: 100%;
   }
 
-  &__header {
-    white-space: nowrap;
-  }
-
   &__options {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  &__option {
+  &__header,
+  &__choice {
+    height: var(--max-height);
     display: flex;
     align-items: center;
-    margin: variables.$separation-sides;
-    padding: variables.$separation-sides;
   }
 
-  &__subtitle {
-    margin-right: variables.$separation-sides;
-    transform: var(--subtitle-align);
+  &__header {
+    justify-content: end;
   }
 
   &__choice {
-    transform: var(--align-choices);
+    justify-content: start;
+  }
+
+  &__subtitle {
+    text-align: right;
+    font-weight: 350;
+  }
+
+  &__option {
+    font-weight: 200;
+  }
+
+  &__subtitle,
+  &__option {
+    font-size: variables.$font-size-h2-small;
+    padding: variables.$separation-header-medium;
+
+    @media screen and (max-width: variables.$container-large) {
+      font-size: variables.$font-size-h3-small;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      padding: variables.$separation-header-small;
+      font-size: variables.$font-size-h4-medium;
+    }
+  }
+
+  &__subtitles,
+  &__choices {
+    width: 50%;
   }
 }

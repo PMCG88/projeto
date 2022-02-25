@@ -4,16 +4,16 @@ export const cars = [
   {
     src: images.default["BMW-2-Series-Active-Tourer"],
     alt: "BMW 2 Series Active Tourer",
-    label: "218d",
+    label: "218d Tourer",
   },
   {
     src: images.default["BMW-3-Series-Touring"],
     alt: "BMW 3 Series Touring",
-    label: "320d",
+    label: "320d Touring",
   },
   {
     src: images.default["BMW-5-Series-Touring"],
     alt: "BMW 5 Series Touring",
-    label: "520d",
+    label: "520d Touring",
   },
 ];

@@ -9,7 +9,7 @@ export const cars = [
   {
     src: images.default["BMW-2-Series-Coupe"],
     alt: "BMW 2 Series Coupe",
-    label: "225d",
+    label: "225d Coupe",
   },
   {
     src: images.default["BMW-4-Series"],

@@ -21,10 +21,9 @@
 
   &__title {
     text-align: left;
-    margin-top: 0;
+    margin-top: 0.4 * variables.$separation-bottom;
 
     @media screen and (max-width: variables.$container-medium) {
-      margin-top: 0.4 * variables.$separation-bottom;
       text-align: center;
     }
   }

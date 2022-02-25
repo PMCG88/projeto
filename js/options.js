@@ -62,7 +62,7 @@ window.addEventListener("resize", setOptionHeight);
 window.addEventListener("resize", alignSubtitles);
 
 setOptionHeight();
-setTimeout(alignSubtitles, 200);
+setTimeout(alignSubtitles, 300);
 
 function setOptionHeight() {
   contents.forEach((content) => {
@@ -92,19 +92,6 @@ function removeGenerateError() {
   if (generate.classList.contains("error")) {
     generate.classList.remove("error");
     generateError.classList.remove("generate__error--active");
-  }
-}
-
-function onSubmit(event) {
-  event.preventDefault();
-  if (options.checkValidity() === false) {
-    requiredInputs.forEach((input) => {
-      if (input.checkValidity() === false) {
-        addError(input);
-      }
-    });
-  } else {
-    options.submit();
   }
 }
 
@@ -174,11 +161,54 @@ checkboxs.forEach((checkbox) => {
         span.append(checkSpan);
         checkSpan.innerText = ", " + checkbox.value;
       }
-    } else if (span.firstElementChild) {
-      span.firstElementChild.remove();
-      if (span.innerText === "") {
+    } else if (span.children.length > 0) {
+      const spanText = span.innerText.split(",")[0];
+      let spanChilds = Array.from(span.children);
+      let childSpansText = [];
+      spanChilds.forEach((spanChild) => {
+        childSpansText.push(
+          `<span class="options__span-checkbox">${spanChild.innerText}</span>`
+        );
+      });
+      if (span.innerText === checkbox.value) {
         removeInputValue(span);
+      } else {
+        childSpansText.forEach((childText, index) => {
+          if (childText.includes(checkbox.value)) {
+            childSpansText.splice(index, 1);
+          }
+        });
+        span.innerHTML = `${spanText}`.concat(childSpansText.join(""));
       }
     }
   });
 });
+
+function onSubmit(event) {
+  event.preventDefault();
+  if (options.checkValidity() === false) {
+    requiredInputs.forEach((input) => {
+      if (input.checkValidity() === false) {
+        addError(input);
+      }
+    });
+  } else {
+    const subtitles = document.querySelectorAll(".options__subtitle");
+    let proposalTitles = [];
+    subtitles.forEach((subtitle) => {
+      proposalTitles.push(subtitle.innerText);
+    });
+    const allOptions = document.querySelectorAll(".options__span");
+    let proposalChoices = [];
+    allOptions.forEach((option) => {
+      proposalChoices.push(option.innerText);
+    });
+    localStorage.setItem("titles", JSON.stringify(proposalTitles));
+    localStorage.setItem("choices", JSON.stringify(proposalChoices));
+    localStorage.setItem(
+      "label",
+      document.querySelector(".labels__label--active").innerText
+    );
+    options.submit();
+  }
+}

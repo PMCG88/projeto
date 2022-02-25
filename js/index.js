@@ -1,7 +1,7 @@
 import "./grid";
 import "./news";
 
-const titles = document.querySelectorAll("body > h2");
+const titles = document.querySelectorAll("body > h2, .grid__title");
 const welcome = document.querySelector(".welcome");
 
 window.addEventListener("scroll", removeWelcome);
@@ -21,8 +21,6 @@ setWelcome();
 setTimeout(removeWelcome, 13000);
 
 function setTitleIntersectionObserver() {
-  const titles = document.querySelectorAll("body > h2");
-
   titles.forEach((title) => {
     titleIntersectionObserver.observe(title);
   });

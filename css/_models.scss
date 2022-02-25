@@ -14,6 +14,9 @@
     width: 100vw;
     height: var(--img-height);
     overflow: hidden;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
   }
 
   &__scroll {
@@ -110,6 +113,7 @@
 
   &__nav {
     position: relative;
+    z-index: 2;
 
     @media screen and (max-width: variables.$container-small) {
       transform: translateY(-30%);
@@ -129,9 +133,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  position: relative;
+  z-index: 2;
   @media screen and (max-width: variables.$container-medium) {
-    transform: translateY(120%);
+    transform: translateY(185%);
   }
 
   &__item {
@@ -157,9 +162,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 10;
 
     @media screen and (max-width: variables.$container-medium) {
-      width: 70%;
+      width: 60%;
     }
 
     &--left {
@@ -184,19 +190,31 @@
 
   &__wheel {
     &--left {
-      &:hover {
+      &:active {
         transform: rotate(-25deg);
       }
-      &:active {
-        transform: rotate(-45deg);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: rotate(-25deg);
+        }
+        &:active {
+          transform: rotate(-45deg);
+        }
       }
     }
     &--right {
-      &:hover {
+      &:active {
         transform: rotate(25deg);
       }
-      &:active {
-        transform: rotate(45deg);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: rotate(25deg);
+        }
+        &:active {
+          transform: rotate(45deg);
+        }
       }
     }
   }
@@ -207,6 +225,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+  pointer-events: none;
 
   & * {
     margin: 0;
@@ -218,6 +238,10 @@
     opacity: 0;
     z-index: 1;
 
+    @media screen and (min-width: variables.$container-medium) {
+      transform: translateY(105%);
+    }
+
     &--active {
       opacity: 1;
       transition: 1s;
@@ -228,12 +252,17 @@
 
   &__text {
     font-family: "Broadbandoblique";
-    font-size: 4rem;
+    font-size: 2rem;
     color: #b2bec3;
     text-shadow: variables.$text-shadow-strong;
 
     @media screen and (max-width: variables.$container-medium) {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
+}
+
+.container__models {
+  position: relative;
+  z-index: 2;
 }
