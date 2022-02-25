@@ -16,11 +16,16 @@
   }
 
   &__option {
+    align-self: flex-start;
     border: variables.$border;
     border-radius: 1rem;
     margin-bottom: variables.$separation-sides;
-    width: 100%;
+    width: 84%;
     overflow: hidden;
+
+    @media screen and (max-width: variables.$container-large) {
+      align-self: auto;
+    }
 
     &--open {
       & > .options__content {
@@ -88,8 +93,13 @@
     color: variables.$color-text-dark;
     transform: var(--subtitle-align);
 
-    &--checked {
+    &--selected {
       color: inherit;
+    }
+
+    &-checkbox {
+      margin: 0;
+      padding: 0;
     }
 
     @media screen and (max-width: variables.$container-medium) {
@@ -145,17 +155,20 @@
   }
 
   &__buttons {
+    align-self: flex-end;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
     position: sticky;
-    top: 0;
+    top: 8%;
     z-index: 1;
     // so that the buttons appear over elements in same hierarchy level
 
     @media screen and (max-width: variables.$container-large) {
+      align-self: auto;
       align-items: center;
+      top: 0;
     }
   }
 
@@ -192,5 +205,16 @@
         transform: translateY(3%);
       }
     }
+  }
+}
+
+.container__options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: variables.$container-large) {
+    transform: translateY(-12%);
   }
 }

@@ -1,13 +1,17 @@
-import "./generate";
-
 const options = document.querySelector(".options");
 const everyOption = document.querySelectorAll(".options__option");
 const contents = document.querySelectorAll(".options__content");
 const spans = document.querySelectorAll(".options__span");
-let lefts = [];
+const generateError = document.querySelector(".generate__error");
+const generate = document.querySelector(".generate");
+const requiredInputs = document.querySelectorAll("input[required]");
 const checkboxs = document.querySelectorAll("input[type='checkbox']");
 const closeAllButton = document.querySelector("#closeAll");
+const defaultString = "Choose an option!";
+const virgula = ",";
+let lefts = [];
 
+// open option
 options.addEventListener("click", (event) => {
   if (event.target.closest(".options__header")) {
     const header = event.target.closest(".options__header");
@@ -30,6 +34,30 @@ closeAllButton.addEventListener("click", (event) => {
   });
 });
 
+options.addEventListener("reset", () => {
+  removeGenerateError();
+  everyOption.forEach((option) => {
+    if (option.classList.contains("error")) {
+      option.classList.remove("error");
+    }
+    removeInputValue(option.querySelector(".options__span"));
+  });
+});
+
+// listen to required (radio) input changes
+requiredInputs.forEach((input) => {
+  input.addEventListener("change", (event) => {
+    if (event.target.closest(".options__option").classList.contains("error")) {
+      event.target.closest(".options__option").classList.remove("error");
+    }
+    if (options.checkValidity() === true) {
+      removeGenerateError();
+    }
+    addInputValue(input);
+  });
+});
+
+options.addEventListener("submit", onSubmit);
 window.addEventListener("resize", setOptionHeight);
 window.addEventListener("resize", alignSubtitles);
 
@@ -60,6 +88,55 @@ function alignSubtitles() {
   }
 }
 
+function removeGenerateError() {
+  if (generate.classList.contains("error")) {
+    generate.classList.remove("error");
+    generateError.classList.remove("generate__error--active");
+  }
+}
+
+function onSubmit(event) {
+  event.preventDefault();
+  if (options.checkValidity() === false) {
+    requiredInputs.forEach((input) => {
+      if (input.checkValidity() === false) {
+        addError(input);
+      }
+    });
+  } else {
+    options.submit();
+  }
+}
+
+function addError(input) {
+  input.closest(".options__option").classList.add("error");
+  generate.classList.add("error");
+  generateError.classList.add("generate__error--active");
+}
+
+function addInputValue(input) {
+  const span = input
+    .closest(".options__option")
+    .querySelector(".options__span");
+  span.classList.add("options__span--selected");
+  if (span.firstElementChild) {
+    if (span.firstElementChild.innerText.includes(virgula)) {
+      span.innerHTML = `${input.value}<span class="options__span-checkbox">${span.firstElementChild.innerText}</span>`;
+    } else {
+      span.innerHTML = `${input.value}<span class="options__span-checkbox">, ${span.firstElementChild.innerText}</span>`;
+    }
+  } else {
+    span.innerText = input.value;
+  }
+}
+
+function removeInputValue(span) {
+  span.innerText = defaultString;
+  span.classList.remove("options__span--selected");
+}
+
+// generate separation from radio and check
+// and listen to checkbox input changes
 checkboxs.forEach((checkbox) => {
   const choice = checkbox.parentElement.parentElement;
   const choices = choice.parentElement;
@@ -69,4 +146,27 @@ checkboxs.forEach((checkbox) => {
       "1px groove rgba(220, 220, 220, 0.1)"
     );
   }
+  checkbox.addEventListener("change", () => {
+    const span = checkbox
+      .closest(".options__option")
+      .querySelector(".options__span");
+    if (checkbox.checked) {
+      span.classList.add("options__span--selected");
+      const checkSpan = document.createElement("span");
+      checkSpan.classList.add("options__span-checkbox");
+      if (span.innerText === defaultString) {
+        span.innerText = "";
+        span.append(checkSpan);
+        checkSpan.innerText = checkbox.value;
+      } else {
+        span.append(checkSpan);
+        checkSpan.innerText = ", " + checkbox.value;
+      }
+    } else if (span.firstElementChild) {
+      span.firstElementChild.remove();
+      if (span.innerText === "") {
+        removeInputValue(span);
+      }
+    }
+  });
 });

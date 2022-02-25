@@ -27,6 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateY(-6.5%);
 
     &--active {
       & > .models__img {

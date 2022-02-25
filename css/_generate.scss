@@ -21,7 +21,7 @@
 
   &__title {
     text-align: left;
-    margin-top: variables.$separation-bottom;
+    margin-top: 0;
 
     @media screen and (max-width: variables.$container-medium) {
       margin-top: 0.4 * variables.$separation-bottom;
