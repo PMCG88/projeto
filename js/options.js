@@ -119,13 +119,13 @@ function addInputValue(input) {
     .closest(".options__option")
     .querySelector(".options__span");
   span.classList.add("options__span--selected");
-  if (span.firstElementChild) {
+  if (span.children.length === 1) {
     if (span.firstElementChild.innerText.includes(virgula)) {
       span.innerHTML = `${input.value}<span class="options__span-checkbox">${span.firstElementChild.innerText}</span>`;
     } else {
       span.innerHTML = `${input.value}<span class="options__span-checkbox">, ${span.firstElementChild.innerText}</span>`;
     }
-  } else {
+  } else if (span.children.length === 0) {
     span.innerText = input.value;
   }
 }
