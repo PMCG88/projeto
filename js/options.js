@@ -101,6 +101,40 @@ function addError(input) {
   generateError.classList.add("generate__error--active");
 }
 
+function onSubmit(event) {
+  event.preventDefault();
+  if (options.checkValidity() === false) {
+    requiredInputs.forEach((input) => {
+      if (input.checkValidity() === false) {
+        addError(input);
+      }
+    });
+  } else {
+    const subtitles = document.querySelectorAll(".options__subtitle");
+    let proposalTitles = [];
+    subtitles.forEach((subtitle) => {
+      proposalTitles.push(subtitle.innerText);
+    });
+    const allOptions = document.querySelectorAll(".options__span");
+    let proposalChoices = [];
+    allOptions.forEach((option) => {
+      proposalChoices.push(option.innerText);
+    });
+    localStorage.setItem("titles", JSON.stringify(proposalTitles));
+    localStorage.setItem("choices", JSON.stringify(proposalChoices));
+    localStorage.setItem(
+      "label",
+      document.querySelector(".labels__label--active").innerText
+    );
+    options.submit();
+  }
+}
+
+function removeInputValue(span) {
+  span.innerText = defaultString;
+  span.classList.remove("options__span--selected");
+}
+
 function addInputValue(input) {
   const span = input
     .closest(".options__option")
@@ -129,11 +163,6 @@ function addInputValue(input) {
   }
 }
 
-function removeInputValue(span) {
-  span.innerText = defaultString;
-  span.classList.remove("options__span--selected");
-}
-
 // generate separation from radio and check
 // and listen to checkbox input changes
 checkboxs.forEach((checkbox) => {
@@ -145,6 +174,7 @@ checkboxs.forEach((checkbox) => {
       "1px groove rgba(220, 220, 220, 0.1)"
     );
   }
+
   checkbox.addEventListener("change", () => {
     const span = checkbox
       .closest(".options__option")
@@ -183,32 +213,3 @@ checkboxs.forEach((checkbox) => {
     }
   });
 });
-
-function onSubmit(event) {
-  event.preventDefault();
-  if (options.checkValidity() === false) {
-    requiredInputs.forEach((input) => {
-      if (input.checkValidity() === false) {
-        addError(input);
-      }
-    });
-  } else {
-    const subtitles = document.querySelectorAll(".options__subtitle");
-    let proposalTitles = [];
-    subtitles.forEach((subtitle) => {
-      proposalTitles.push(subtitle.innerText);
-    });
-    const allOptions = document.querySelectorAll(".options__span");
-    let proposalChoices = [];
-    allOptions.forEach((option) => {
-      proposalChoices.push(option.innerText);
-    });
-    localStorage.setItem("titles", JSON.stringify(proposalTitles));
-    localStorage.setItem("choices", JSON.stringify(proposalChoices));
-    localStorage.setItem(
-      "label",
-      document.querySelector(".labels__label--active").innerText
-    );
-    options.submit();
-  }
-}
