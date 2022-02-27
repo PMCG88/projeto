@@ -1,10 +1,13 @@
 @use "normalize";
 @use "variables";
 @use "header";
+@use "footer";
 @use "grid";
 @use "news";
 @use "history";
 @use "models";
+@use "controls";
+@use "labels";
 @use "welcome";
 @use "nav";
 @use "options";
@@ -246,7 +249,7 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  // material icons always centered within themselves and inherit the styles from the parent text
+  // material icons always centered within themselves and inherit the styles from the parent
 }
 
 .title {

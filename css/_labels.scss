@@ -1,0 +1,43 @@
+@use "variables";
+
+.labels {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
+
+  & * {
+    margin: 0;
+  }
+
+  &__label {
+    position: absolute;
+    transform: translateY(55%);
+    opacity: 0;
+    z-index: 1;
+
+    @media screen and (min-width: variables.$container-medium) {
+      transform: translateY(105%);
+    }
+
+    &--active {
+      opacity: 1;
+      transition: 1s;
+      z-index: 2;
+      cursor: pointer;
+    }
+  }
+
+  &__text {
+    font-family: "Broadbandoblique";
+    font-size: 2rem;
+    color: #b2bec3;
+    text-shadow: variables.$text-shadow-strong;
+
+    @media screen and (max-width: variables.$container-medium) {
+      font-size: 1.6rem;
+    }
+  }
+}

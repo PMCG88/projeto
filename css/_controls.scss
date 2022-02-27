@@ -1,0 +1,92 @@
+@use "variables";
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  @media screen and (max-width: variables.$container-medium) {
+    transform: translateY(185%);
+  }
+
+  &__item {
+    width: 2.68rem;
+    height: auto;
+    margin: 0 15rem;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin: 0 10rem;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin: 0 0.5rem;
+    }
+  }
+
+  &__name {
+    display: none;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+
+    @media screen and (max-width: variables.$container-medium) {
+      width: 60%;
+    }
+
+    &--left {
+    }
+    &--right {
+    }
+
+    & img {
+      filter: variables.$filter;
+    }
+  }
+
+  &__arrow {
+    width: 65%;
+
+    &--left {
+    }
+    &--right {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__wheel {
+    &--left {
+      &:active {
+        transform: rotate(-25deg);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: rotate(-25deg);
+        }
+        &:active {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    &--right {
+      &:active {
+        transform: rotate(25deg);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: rotate(25deg);
+        }
+        &:active {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}

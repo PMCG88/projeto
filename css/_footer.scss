@@ -1,0 +1,75 @@
+@use "variables";
+@use "header";
+
+.footer {
+  border-top: variables.$border;
+
+  &__anchor {
+    margin-left: variables.$separation-header-large;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin-left: variables.$separation-header-medium;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin-left: variables.$separation-header-small;
+    }
+
+    & span {
+      color: variables.$color-dot;
+    }
+  }
+
+  &__logo,
+  &__icon {
+    margin: variables.$separation-logo variables.$separation-logo
+      variables.$separation-logo variables.$separation-header-large;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin: variables.$separation-logo variables.$separation-logo
+        variables.$separation-logo variables.$separation-header-medium;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin: variables.$separation-logo variables.$separation-logo
+        variables.$separation-logo variables.$separation-header-small;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 variables.$separation-header-large 0;
+
+    @media screen and (max-width: variables.$container-large) {
+      margin: 0 variables.$separation-header-medium 0;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      margin: 0 variables.$separation-header-small 0;
+    }
+  }
+
+  &__icon {
+    filter: variables.$filter;
+    height: 3rem;
+
+    &[alt="Facebook"] {
+      transform: translate(17%, -2%);
+    }
+
+    &:hover {
+      filter: none;
+    }
+
+    @media screen and (max-width: variables.$container-large) {
+      height: 2.5rem;
+    }
+
+    @media screen and (max-width: variables.$container-medium) {
+      height: 2.3rem;
+    }
+  }
+}

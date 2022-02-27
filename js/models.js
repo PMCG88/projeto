@@ -1,10 +1,19 @@
-import "./slides";
 import "./options";
 
+const next = document.querySelector(".controls__button--right");
+const prev = document.querySelector(".controls__button--left");
+const wrapper = document.querySelector(".models__wrapper");
+const scrollModels = document.querySelector(".models__scroll");
 const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
 const drive = localStorage.getItem("drive").toLowerCase();
 const titles = document.querySelectorAll("body > h2, .generate__title");
+
+next.addEventListener("click", nextSlide);
+prev.addEventListener("click", prevSlide);
+window.addEventListener("resize", setWrapperHeight);
+
+setTimeout(setWrapperHeight, 200);
 
 const titleIntersectionObserver = new IntersectionObserver((titles) => {
   titles.forEach((title) => {
@@ -28,6 +37,7 @@ function setTitleIntersectionObserver() {
 import(`./drive/${drive}.js`).then(({ cars }) => {
   appendModels(cars);
 });
+what I wanted to write but doesn't work with parcel
 */
 
 getDrive();
@@ -91,4 +101,58 @@ function appendModels(models) {
     scrollModels.firstElementChild.classList.add("models__slide--active");
     labels.firstElementChild.classList.add("labels__label--active");
   }
+}
+
+function setWrapperHeight() {
+  const activeSlide = document.querySelector(".models__slide--active");
+  const height = activeSlide.firstElementChild.offsetHeight;
+  wrapper.style.setProperty("--img-height", height + "px");
+  positionSlides();
+}
+
+function positionSlides() {
+  const activeSlide = document.querySelector(".models__slide--active");
+  const slideWidth = activeSlide.offsetWidth;
+  const slides = Array.from(document.querySelectorAll(".models__slide"));
+  slides.forEach((slide, index) => {
+    slide.style.left = slideWidth * index + "px";
+  });
+  scrollModels.style.transform =
+    "translateX(-" + slideWidth * slides.indexOf(activeSlide) + "px)";
+}
+
+function nextSlide() {
+  const activeSlide = document.querySelector(".models__slide--active");
+  const nextSlide =
+    activeSlide.nextElementSibling ||
+    activeSlide.parentElement.firstElementChild;
+  activeSlide.classList.remove("models__slide--active");
+  nextSlide.classList.add("models__slide--active");
+  const distance = nextSlide.style.left;
+  scrollModels.style.transform = "translateX(-" + distance + ")";
+
+  const activeLabel = document.querySelector(".labels__label--active");
+  const nextLabel =
+    activeLabel.nextElementSibling ||
+    activeLabel.parentElement.firstElementChild;
+  activeLabel.classList.remove("labels__label--active");
+  nextLabel.classList.add("labels__label--active");
+}
+
+function prevSlide() {
+  const activeSlide = document.querySelector(".models__slide--active");
+  const prevSlide =
+    activeSlide.previousElementSibling ||
+    activeSlide.parentElement.lastElementChild;
+  activeSlide.classList.remove("models__slide--active");
+  prevSlide.classList.add("models__slide--active");
+  const distance = prevSlide.style.left;
+  scrollModels.style.transform = "translateX(-" + distance + ")";
+
+  const activeLabel = document.querySelector(".labels__label--active");
+  const prevLabel =
+    activeLabel.previousElementSibling ||
+    activeLabel.parentElement.lastElementChild;
+  activeLabel.classList.remove("labels__label--active");
+  prevLabel.classList.add("labels__label--active");
 }
