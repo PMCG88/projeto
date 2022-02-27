@@ -5,6 +5,10 @@ gridLinks.forEach((link) => {
     const drive = event.target.closest(".grid__img").getAttribute("alt");
     localStorage.setItem("drive", drive);
   });
+  link.addEventListener("auxclick", (event) => {
+    const drive = event.target.closest(".grid__img").getAttribute("alt");
+    localStorage.setItem("drive", drive);
+  });
 });
 
 window.addEventListener("resize", setModelImageHeight);

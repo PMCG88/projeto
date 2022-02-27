@@ -4,7 +4,6 @@ const next = document.querySelector(".controls__button--right");
 const prev = document.querySelector(".controls__button--left");
 const wrapper = document.querySelector(".models__wrapper");
 const scrollModels = document.querySelector(".models__scroll");
-const scrollModels = document.querySelector(".models__scroll");
 const labels = document.querySelector(".labels");
 const drive = localStorage.getItem("drive").toLowerCase();
 const titles = document.querySelectorAll("body > h2, .generate__title");
